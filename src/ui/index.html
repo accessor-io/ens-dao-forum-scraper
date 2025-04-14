@@ -1,104 +1,810 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENS Forum Scraper UI</title>
+    <title>ENS Forum Scraper</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            /* Light Theme Colors */
+            --primary: #4f46e5;
+            --primary-light: #818cf8;
+            --primary-dark: #3730a3;
+            --secondary: #0f172a;
+            --accent: #f59e0b;
+            --accent-light: #fbbf24;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
+            --gray-dark: #334155;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-tertiary: #64748b;
+            --border-light: #e2e8f0;
+
+            /* UI Elements */
+            --border-radius-sm: 6px;
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 24px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --transition-fast: all 0.2s ease;
+            --transition: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+        }
+
+        /* Dark Theme */
+        html[data-theme="dark"] {
+            --primary: #818cf8;
+            --primary-light: #a5b4fc;
+            --primary-dark: #4f46e5;
+            --secondary: #1e293b;
+            --accent: #fbbf24;
+            --accent-light: #fcd34d;
+            --accent-dark: #f59e0b;
+            --success: #34d399;
+            --success-light: rgba(16, 185, 129, 0.2);
+            --danger: #f87171;
+            --danger-light: rgba(239, 68, 68, 0.2);
+            --light: #1e293b;
+            --dark: #f8fafc;
+            --gray: #94a3b8;
+            --gray-light: #334155;
+            --gray-dark: #cbd5e1;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-tertiary: #94a3b8;
+            --border-light: #334155;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            transition: var(--transition);
+        }
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
+            padding: 0 20px;
         }
-        h1, h2 {
-            color: #333;
+        
+        header {
+            background-color: var(--bg-primary);
+            box-shadow: var(--shadow);
+            padding: 20px 0;
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: var(--transition);
         }
-        .url-list {
-            margin: 20px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 10px;
+        
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .url-item {
-            padding: 8px;
-            border-bottom: 1px solid #eee;
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .logo i {
+            font-size: 28px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-tertiary);
+            font-size: 20px;
+            transition: var(--transition-fast);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary);
+            transform: rotate(15deg);
+        }
+        
+        .card {
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        
+        .card-header {
+            padding: 24px;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        
+        .card-header h2 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .card-body {
+            padding: 24px;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            user-select: none;
+            border: 1px solid transparent;
+            border-radius: var(--border-radius-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+        
+        .btn:hover:before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary {
+            color: white;
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            color: white;
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1e202d;
+            border-color: #1e202d;
+        }
+        
+        .btn-accent {
+            color: var(--dark);
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+            border-color: var(--accent-dark);
+        }
+        
+        .btn-outline {
+            color: var(--primary);
+            background-color: transparent;
+            border-color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            color: white;
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-sm {
+            padding: 8px 14px;
+            font-size: 13px;
+        }
+        
+        .btn-icon {
+            aspect-ratio: 1;
+            padding: 8px;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn:disabled:before {
+            display: none;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 24px;
+            height: 24px;
+            padding: 0 8px;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            border-radius: 20px;
+            background-color: var(--gray-light);
+            color: var(--gray-dark);
+            transition: var(--transition);
+        }
+        
+        .badge-primary {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        
+        .url-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border-radius: var(--border-radius-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+        
+        .url-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+        
+        .url-item:hover {
+            background-color: var(--gray-light);
+        }
+        
         .url-item:last-child {
             border-bottom: none;
         }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 4px;
+        
+        .url-text {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 20px;
         }
-        button.open-btn {
-            background-color: #2196F3;
-            padding: 5px 10px;
-            font-size: 14px;
+        
+        .url-buttons {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
         }
-        button.scrape-btn {
-            background-color: #ff9800;
+        
+        .status-steps {
+            padding: 0 0 0 20px;
         }
-        button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
+        
+        .status-steps li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 10px;
         }
-        .status {
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #f1f1f1;
+
+        .status-steps li:before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: var(--primary);
         }
-        #log {
-            margin-top: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #f8f8f8;
-            height: 200px;
+
+        .status-steps li:after {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 20px;
+            width: 1px;
+            height: calc(100% + 6px);
+            background-color: var(--border-light);
+        }
+
+        .status-steps li:last-child:after {
+            display: none;
+        }
+        
+        .log-container {
+            max-height: 300px;
             overflow-y: auto;
-            font-family: monospace;
+            background-color: var(--secondary);
+            border-radius: var(--border-radius-sm);
+            padding: 16px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #f8f9fa;
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+        
+        .log-entry {
+            margin-bottom: 8px;
+            display: flex;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.3s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .log-time {
+            color: #a9b5c5;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .log-message {
+            flex: 1;
+        }
+        
+        .log-success {
+            color: var(--success);
+        }
+        
+        .log-error {
+            color: var(--danger);
+        }
+        
+        .log-info {
+            color: var(--primary-light);
+        }
+        
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--text-tertiary);
+        }
+        
+        .empty-state i {
+            font-size: 64px;
+            margin-bottom: 24px;
+            color: var(--border-light);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 12px;
+            font-weight: 600;
+            font-size: 24px;
+            color: var(--text-primary);
+        }
+
+        .empty-state p {
+            max-width: 400px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+        }
+
+        /* Preview Panel */
+        .preview-container {
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-light);
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+            transition: var(--transition);
+        }
+
+        .preview-container.active {
+            display: block;
+            animation: slideIn 0.5s forwards;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .preview-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .preview-close {
+            background: none;
+            border: none;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            font-size: 18px;
+            transition: var(--transition-fast);
+        }
+
+        .preview-close:hover {
+            color: var(--danger);
+            transform: scale(1.1);
+        }
+
+        .preview-content {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius-sm);
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Stats Cards */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background-color: var(--bg-primary);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .stat-urls {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .stat-scraped {
+            background-color: var(--success-light);
+            color: var(--success);
+        }
+
+        .stat-errors {
+            background-color: var(--danger-light);
+            color: var(--danger);
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            background-color: var(--bg-secondary);
+            border-radius: 20px;
+            height: 8px;
+            width: 100%;
+            overflow: hidden;
+            margin: 16px 0;
+            position: relative;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            height: 100%;
+            width: 0%;
+            border-radius: 20px;
+            transition: width 0.5s ease;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gray);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .slide-in {
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .bounce {
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .url-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .url-text {
+                margin-bottom: 10px;
+                padding-right: 0;
+            }
+            
+            .url-buttons {
+                width: 100%;
+                justify-content: flex-end;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .card-header h2 {
+                margin-bottom: 10px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>ENS Forum Scraper UI</h1>
-    
-    <div>
-        <button id="loadUrls">Load URLs from waymore.txt</button>
-        <button id="loadCustomUrl">Add Custom URL</button>
-    </div>
-    
-    <div id="urlListContainer" style="display: none;">
-        <h2>URL List (<span id="urlCount">0</span>)</h2>
-        <div class="url-list" id="urlList"></div>
-    </div>
-    
-    <div class="status">
-        <h2>Status</h2>
-        <p>Use this interface to:</p>
-        <ol>
-            <li>Load URLs from waymore.txt</li>
-            <li>Click "Open" next to a URL to open it in a new tab</li>
-            <li>Log in if required</li>
-            <li>Once the page is loaded, click "Scrape This" to extract content</li>
-        </ol>
-        <div id="log"></div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-spider"></i>
+                <span>ENS Forum Scraper</span>
+            </div>
+            <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Stats Overview -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon stat-urls">
+                    <i class="fas fa-link"></i>
+                </div>
+                <div class="stat-value" id="stat-total-urls">0</div>
+                <div class="stat-label">Total URLs</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon stat-scraped">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-value" id="stat-scraped">0</div>
+                <div class="stat-label">Scraped</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon stat-errors">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-value" id="stat-errors">0</div>
+                <div class="stat-label">Errors</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>URL Management</h2>
+                <div class="btn-group">
+                    <button id="loadUrls" class="btn btn-primary">
+                        <i class="fas fa-file-import"></i> Load URLs
+                    </button>
+                    <button id="loadCustomUrl" class="btn btn-outline">
+                        <i class="fas fa-plus"></i> Add Custom URL
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="urlListContainer">
+                    <div id="urlListEmpty" class="empty-state">
+                        <i class="fas fa-link"></i>
+                        <h3>No URLs Loaded</h3>
+                        <p>Click the "Load URLs" button to import URLs from waymore.txt or add custom URLs manually.</p>
+                    </div>
+                    <div id="urlListContent" style="display:none;">
+                        <div class="url-list-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                            <h3>Available URLs <span class="badge badge-primary" id="urlCount">0</span></h3>
+                            <div class="progress-status" style="display: none;">
+                                <span id="progressText">0/0 Completed</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="url-list" id="urlList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview Panel -->
+        <div id="previewContainer" class="preview-container">
+            <div class="preview-header">
+                <div class="preview-title" id="previewTitle">Content Preview</div>
+                <button id="previewClose" class="preview-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="preview-content" id="previewContent"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Status & Logs</h2>
+            </div>
+            <div class="card-body">
+                <h3 style="margin-bottom: 12px;">How it works</h3>
+                <ol class="status-steps">
+                    <li>Load URLs from waymore.txt or add them manually</li>
+                    <li>Click <span style="color: var(--primary);"><i class="fas fa-external-link-alt"></i> Open</span> to view the page in a new tab</li>
+                    <li>Log in if required</li>
+                    <li>Click <span style="color: var(--accent-dark);"><i class="fas fa-download"></i> Scrape</span> to extract content</li>
+                </ol>
+                
+                <h3 style="margin: 20px 0 12px;">Activity Log</h3>
+                <div class="log-container" id="log"></div>
+            </div>
+        </div>
     </div>
     
     <script>
@@ -106,38 +812,138 @@
         const loadUrlsBtn = document.getElementById('loadUrls');
         const loadCustomUrlBtn = document.getElementById('loadCustomUrl');
         const urlListContainer = document.getElementById('urlListContainer');
+        const urlListEmpty = document.getElementById('urlListEmpty');
+        const urlListContent = document.getElementById('urlListContent');
         const urlList = document.getElementById('urlList');
         const urlCount = document.getElementById('urlCount');
         const logElement = document.getElementById('log');
+        const themeToggle = document.getElementById('themeToggle');
+        const progressStatus = document.querySelector('.progress-status');
+        const progressText = document.getElementById('progressText');
+        const progressFill = document.getElementById('progressFill');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewTitle = document.getElementById('previewTitle');
+        const previewContent = document.getElementById('previewContent');
+        const previewClose = document.getElementById('previewClose');
         
-        // URL Storage
+        // Stats Elements
+        const statTotalUrls = document.getElementById('stat-total-urls');
+        const statScraped = document.getElementById('stat-scraped');
+        const statErrors = document.getElementById('stat-errors');
+        
+        // URL Storage and Stats
         let urls = [];
+        let stats = {
+            totalUrls: 0,
+            scraped: 0,
+            errors: 0
+        };
+        
+        // Initialize Theme
+        function initTheme() {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+            themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        
+        // Toggle Theme
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('darkMode', newTheme === 'dark');
+            themeToggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            
+            // Add bounce animation
+            themeToggle.classList.add('bounce');
+            setTimeout(() => {
+                themeToggle.classList.remove('bounce');
+            }, 500);
+        });
+        
+        // Close Preview
+        previewClose.addEventListener('click', () => {
+            previewContainer.classList.remove('active');
+        });
+        
+        // Update Stats Display
+        function updateStats() {
+            statTotalUrls.textContent = stats.totalUrls;
+            statScraped.textContent = stats.scraped;
+            statErrors.textContent = stats.errors;
+            
+            // Update progress if needed
+            if (stats.totalUrls > 0) {
+                const progress = (stats.scraped + stats.errors) / stats.totalUrls * 100;
+                progressFill.style.width = `${progress}%`;
+                progressText.textContent = `${stats.scraped + stats.errors}/${stats.totalUrls} Completed`;
+                
+                if (stats.totalUrls > 0) {
+                    progressStatus.style.display = 'block';
+                } else {
+                    progressStatus.style.display = 'none';
+                }
+            }
+        }
         
         // Log function
-        function log(message) {
+        function log(message, type = 'default') {
             const time = new Date().toLocaleTimeString();
-            logElement.innerHTML += `<div>[${time}] ${message}</div>`;
+            const typeClass = type === 'error' ? 'log-error' : 
+                             type === 'success' ? 'log-success' : 
+                             type === 'info' ? 'log-info' : '';
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `
+                <span class="log-time">[${time}]</span>
+                <span class="log-message ${typeClass}">${message}</span>
+            `;
+            
+            logElement.appendChild(logEntry);
             logElement.scrollTop = logElement.scrollHeight;
+        }
+        
+        // Show Content Preview
+        function showPreview(title, content) {
+            previewTitle.textContent = title;
+            previewContent.innerHTML = content;
+            previewContainer.classList.add('active');
         }
         
         // Load URLs from waymore.txt
         loadUrlsBtn.addEventListener('click', async () => {
             try {
-                log('Loading URLs from waymore.txt...');
+                loadUrlsBtn.disabled = true;
+                loadUrlsBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+                
+                log('Loading URLs from waymore.txt...', 'info');
                 const response = await fetch('/api/load-urls');
                 const data = await response.json();
                 
                 if (data.success) {
                     urls = data.urls;
+                    stats.totalUrls = urls.length;
+                    updateStats();
+                    
                     urlCount.textContent = urls.length;
                     displayUrls();
-                    urlListContainer.style.display = 'block';
-                    log(`Loaded ${urls.length} URLs successfully`);
+                    urlListEmpty.style.display = 'none';
+                    urlListContent.style.display = 'block';
+                    log(`Loaded ${urls.length} URLs successfully`, 'success');
                 } else {
-                    log(`Error: ${data.error}`);
+                    stats.errors++;
+                    updateStats();
+                    log(`Error: ${data.error}`, 'error');
                 }
             } catch (error) {
-                log(`Error loading URLs: ${error.message}`);
+                stats.errors++;
+                updateStats();
+                log(`Error loading URLs: ${error.message}`, 'error');
+            } finally {
+                loadUrlsBtn.disabled = false;
+                loadUrlsBtn.innerHTML = '<i class="fas fa-file-import"></i> Load URLs';
             }
         });
         
@@ -146,10 +952,14 @@
             const url = prompt('Enter URL to scrape:');
             if (url && url.trim()) {
                 urls.push(url.trim());
+                stats.totalUrls++;
+                updateStats();
+                
                 urlCount.textContent = urls.length;
                 displayUrls();
-                urlListContainer.style.display = 'block';
-                log(`Added custom URL: ${url.trim()}`);
+                urlListEmpty.style.display = 'none';
+                urlListContent.style.display = 'block';
+                log(`Added custom URL: ${url.trim()}`, 'info');
             }
         });
         
@@ -162,34 +972,53 @@
                 item.className = 'url-item';
                 
                 const urlText = document.createElement('div');
+                urlText.className = 'url-text';
                 urlText.textContent = url;
+                urlText.title = url;
                 
                 const buttons = document.createElement('div');
+                buttons.className = 'url-buttons';
                 
                 const openBtn = document.createElement('button');
-                openBtn.className = 'open-btn';
-                openBtn.textContent = 'Open';
+                openBtn.className = 'btn btn-sm btn-outline';
+                openBtn.innerHTML = '<i class="fas fa-external-link-alt"></i> Open';
+                openBtn.title = 'Open URL in new tab';
                 openBtn.onclick = () => window.open(url, '_blank');
                 
                 const scrapeBtn = document.createElement('button');
-                scrapeBtn.className = 'scrape-btn';
-                scrapeBtn.textContent = 'Scrape This';
-                scrapeBtn.onclick = () => scrapeUrl(url, index);
+                scrapeBtn.className = 'btn btn-sm btn-accent';
+                scrapeBtn.innerHTML = '<i class="fas fa-download"></i> Scrape';
+                scrapeBtn.title = 'Extract content from this URL';
+                scrapeBtn.onclick = () => scrapeUrl(url, index, scrapeBtn, item);
+                
+                const previewBtn = document.createElement('button');
+                previewBtn.className = 'btn btn-sm btn-secondary';
+                previewBtn.innerHTML = '<i class="fas fa-eye"></i>';
+                previewBtn.title = 'Preview scraped content';
+                previewBtn.style.display = 'none'; // Hide initially
                 
                 buttons.appendChild(openBtn);
                 buttons.appendChild(scrapeBtn);
+                buttons.appendChild(previewBtn);
                 
                 item.appendChild(urlText);
                 item.appendChild(buttons);
+                
+                // Store the preview button reference for later use
+                item.dataset.previewButton = buttons.children.length - 1;
                 
                 urlList.appendChild(item);
             });
         }
         
         // Scrape a specific URL
-        async function scrapeUrl(url, index) {
+        async function scrapeUrl(url, index, button, urlItem) {
             try {
-                log(`Scraping URL: ${url}`);
+                // Change button state to loading
+                button.disabled = true;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Scraping...';
+                
+                log(`Scraping URL: ${url}`, 'info');
                 
                 const response = await fetch('/api/scrape-url', {
                     method: 'POST',
@@ -202,17 +1031,53 @@
                 const data = await response.json();
                 
                 if (data.success) {
-                    log(`Successfully scraped: ${data.outputPath}`);
+                    stats.scraped++;
+                    updateStats();
+                    
+                    log(`Successfully scraped: ${data.outputPath}`, 'success');
+                    
+                    // Mark the URL as scraped
+                    urlItem.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
+                    urlItem.style.borderLeft = '3px solid var(--success)';
+                    
+                    // Enable preview button with scraped content
+                    const previewBtn = urlItem.querySelector('.btn-secondary');
+                    previewBtn.style.display = 'inline-flex';
+                    previewBtn.onclick = () => {
+                        showPreview(data.title || 'Scraped Content', formatPreviewContent(data.content || 'No content available'));
+                    };
                 } else {
-                    log(`Error scraping: ${data.error}`);
+                    stats.errors++;
+                    updateStats();
+                    log(`Error scraping: ${data.error}`, 'error');
+                    urlItem.style.borderLeft = '3px solid var(--danger)';
                 }
             } catch (error) {
-                log(`Error during scrape: ${error.message}`);
+                stats.errors++;
+                updateStats();
+                log(`Error during scrape: ${error.message}`, 'error');
+                urlItem.style.borderLeft = '3px solid var(--danger)';
+            } finally {
+                // Restore button state
+                button.disabled = false;
+                button.innerHTML = '<i class="fas fa-download"></i> Scrape';
             }
         }
         
+        // Format content for preview
+        function formatPreviewContent(content) {
+            // Replace newlines with <br> tags and preserve formatting
+            return content
+                .replace(/\n/g, '<br>')
+                .replace(/===/g, '<strong>===</strong>')
+                .replace(/Author:/g, '<strong>Author:</strong>')
+                .replace(/Date:/g, '<strong>Date:</strong>')
+                .replace(/Title:/g, '<strong>Title:</strong>');
+        }
+        
         // Initialize
-        log('UI loaded. Click "Load URLs" to get started.');
+        initTheme();
+        log('UI loaded. Click "Load URLs" to get started.', 'info');
     </script>
 </body>
 </html> 
