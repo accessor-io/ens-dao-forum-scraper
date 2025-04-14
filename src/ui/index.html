@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENS Forum Scraper UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .url-list {
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .url-item {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .url-item:last-child {
+            border-bottom: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button.open-btn {
+            background-color: #2196F3;
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+        button.scrape-btn {
+            background-color: #ff9800;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+        #log {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f8f8f8;
+            height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>ENS Forum Scraper UI</h1>
+    
+    <div>
+        <button id="loadUrls">Load URLs from waymore.txt</button>
+        <button id="loadCustomUrl">Add Custom URL</button>
+    </div>
+    
+    <div id="urlListContainer" style="display: none;">
+        <h2>URL List (<span id="urlCount">0</span>)</h2>
+        <div class="url-list" id="urlList"></div>
+    </div>
+    
+    <div class="status">
+        <h2>Status</h2>
+        <p>Use this interface to:</p>
+        <ol>
+            <li>Load URLs from waymore.txt</li>
+            <li>Click "Open" next to a URL to open it in a new tab</li>
+            <li>Log in if required</li>
+            <li>Once the page is loaded, click "Scrape This" to extract content</li>
+        </ol>
+        <div id="log"></div>
+    </div>
+    
+    <script>
+        // DOM Elements
+        const loadUrlsBtn = document.getElementById('loadUrls');
+        const loadCustomUrlBtn = document.getElementById('loadCustomUrl');
+        const urlListContainer = document.getElementById('urlListContainer');
+        const urlList = document.getElementById('urlList');
+        const urlCount = document.getElementById('urlCount');
+        const logElement = document.getElementById('log');
+        
+        // URL Storage
+        let urls = [];
+        
+        // Log function
+        function log(message) {
+            const time = new Date().toLocaleTimeString();
+            logElement.innerHTML += `<div>[${time}] ${message}</div>`;
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+        
+        // Load URLs from waymore.txt
+        loadUrlsBtn.addEventListener('click', async () => {
+            try {
+                log('Loading URLs from waymore.txt...');
+                const response = await fetch('/api/load-urls');
+                const data = await response.json();
+                
+                if (data.success) {
+                    urls = data.urls;
+                    urlCount.textContent = urls.length;
+                    displayUrls();
+                    urlListContainer.style.display = 'block';
+                    log(`Loaded ${urls.length} URLs successfully`);
+                } else {
+                    log(`Error: ${data.error}`);
+                }
+            } catch (error) {
+                log(`Error loading URLs: ${error.message}`);
+            }
+        });
+        
+        // Add custom URL
+        loadCustomUrlBtn.addEventListener('click', () => {
+            const url = prompt('Enter URL to scrape:');
+            if (url && url.trim()) {
+                urls.push(url.trim());
+                urlCount.textContent = urls.length;
+                displayUrls();
+                urlListContainer.style.display = 'block';
+                log(`Added custom URL: ${url.trim()}`);
+            }
+        });
+        
+        // Display URLs in the list
+        function displayUrls() {
+            urlList.innerHTML = '';
+            
+            urls.forEach((url, index) => {
+                const item = document.createElement('div');
+                item.className = 'url-item';
+                
+                const urlText = document.createElement('div');
+                urlText.textContent = url;
+                
+                const buttons = document.createElement('div');
+                
+                const openBtn = document.createElement('button');
+                openBtn.className = 'open-btn';
+                openBtn.textContent = 'Open';
+                openBtn.onclick = () => window.open(url, '_blank');
+                
+                const scrapeBtn = document.createElement('button');
+                scrapeBtn.className = 'scrape-btn';
+                scrapeBtn.textContent = 'Scrape This';
+                scrapeBtn.onclick = () => scrapeUrl(url, index);
+                
+                buttons.appendChild(openBtn);
+                buttons.appendChild(scrapeBtn);
+                
+                item.appendChild(urlText);
+                item.appendChild(buttons);
+                
+                urlList.appendChild(item);
+            });
+        }
+        
+        // Scrape a specific URL
+        async function scrapeUrl(url, index) {
+            try {
+                log(`Scraping URL: ${url}`);
+                
+                const response = await fetch('/api/scrape-url', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ url })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    log(`Successfully scraped: ${data.outputPath}`);
+                } else {
+                    log(`Error scraping: ${data.error}`);
+                }
+            } catch (error) {
+                log(`Error during scrape: ${error.message}`);
+            }
+        }
+        
+        // Initialize
+        log('UI loaded. Click "Load URLs" to get started.');
+    </script>
+</body>
+</html> 
