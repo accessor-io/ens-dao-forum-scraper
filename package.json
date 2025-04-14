@@ -1,0 +1,23 @@
+{
+  "name": "ens-forum-scraper",
+  "version": "1.0.0",
+  "description": "A tool for scraping ENS forum content",
+  "main": "src/scrapers/scraper.js",
+  "scripts": {
+    "scrape": "node src/scrapers/scraper.js",
+    "scrape:login": "node src/scrapers/urlpr.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ens",
+    "scraper",
+    "forum",
+    "data"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^23.11.1",
+    "sqlite3": "^5.1.7"
+  }
+} 

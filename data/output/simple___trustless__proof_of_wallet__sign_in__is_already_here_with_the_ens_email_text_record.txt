@@ -1,0 +1,44 @@
+=== BEGINNING OF TOPIC ===
+Title: Simple & Trustless “proof of wallet/ sign-in” Is Already Here With The ENS Email Text Record
+
+Author: Ensideas134
+Date: 10/26/2022, 2:00:39 PM
+
+I feel like there’s a big underrated use case to use ENS email text records to help safely provide proof of wallet IDing for events, apps and websites. It solves the issue of proving you own a certain NFT or address in a trustless way, without risking connecting your wallet to unknown or untrustworthy sites/apps.
+Here’s an example scenario:
+Bob owns an NFT that grants him a 30% discount on all products from Nike.com (http://nike.com/). However, Bob doesn’t entirely trust connecting his wallet to Nike to sign that he is the owner of that NFT that provides a discount. Fortunately, there is a simple and trustless workaround system.
+With this system:
+
+during checkout, Bob would enter his .Eth address, “Bob.eth”.
+
+Nike.com (http://nike.com/) app would look up the ENS email text record of Bob.eth and send an email to it with a one-time code (i.e. QR132)
+Bob would enter the one-time code (QR132) at checkout, verifying they own this wallet which was previously whitelisted for the discount because it contains the special discount NFT.
+
+That’s it. No fancy 3rd party apps to be middle men, the verification system is easy, trustless and as secure as someones email account.
+Some drawbacks may be that that email then becomes an attack vector for hackers and phishers, but if all you’re doing is exchanging one-time codes with that email, it really makes it difficult to access the email aside from just trying to directly crack the password.
+What do you all think? I feel future of address verification is already here with ENS email text records, we just need to make it a community standard.  Of course I may be overlooking something huge, please feel free to pick apart my idea.
+
+=== END OF POST ===
+
+Author: Ensideas134
+Date: 10/26/2022, 3:39:22 PM
+
+I’d add one more note-3rd party apps could be used here to streamline things, but they would be very safe and trustable for users and vendors, because the site wouldn’t have to interact with any wallets directly. It would just be a way to automatically route codes or QR codes to various emails in the ENS text records, and act as a guest info list & QR scanner/code authenticator for sites or event staff.
+In this example I’ll use a made up service “ensauth” to demonstrate:
+It could consist of a website or app where e-commerce or event vendors could do a regular log in and create a sub-page for an event or offer. “coachellaNFT.ensauth. com” or “offer1e46.ensauth. com”.
+There, they could specify a whitelist of Eth addresses that were eligible for an event, or whitelist by a specific NFT. Then they would just post the link to the web page for people to enter their .eth names.
+In the “coachellaNFT.ensauth. com” scenario, lets say the concert Coachella sold an exclusive VIP pass in the form of an NFT. so Via ensauth. com, they can whitelist any address with that NFT and an .eth address with an email text record that directs to their email. The Coachella NFT owner would just have to enter something like “Samantha53.eth” into the ensauth site, then the site would automatically email her a regular or QR code she needed to be admitted to the VIP area, via scanning by event staff.
+via the website, event owners could specify if codes were one-off, time sensitive or a combination of the two. They could also blacklist an account that violated the TOS. The ensauth website could also provide metrics to the event of who signed in, when, public details about their wallet and other publicly available info on Etherscan.
+If the website was ever hacked, no wallet would ever be at risk of being compromised, because the site only ever used publicly available wallet information. At most the event itself would be screwed with people using stolen codes, but the users of the app would never have to worry about their ETH accounts or NFTS being stolen.
+
+=== END OF POST ===
+
+Author: Ensideas134
+Date: 12/7/2022, 11:11:22 AM
+
+Just wanted to add one more quick but important point- this would only work with a reverse record aka primary ENS name. This is because ens names can be sent arbitrarily to any wallet.
+Because of this, any system that employs this method should only recognize primary ens names as a way to verify wallets.
+
+=== END OF POST ===
+
+====== END OF TOPIC ======
