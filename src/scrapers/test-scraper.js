@@ -8,10 +8,12 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function main() {
     let browser;
+    let page;
     try {
-        // Launch browser with stealth mode
+        // Launch browser with stealth mode using system Chrome
         browser = await puppeteer.launch({
             headless: false,
+            executablePath: '/usr/bin/google-chrome', // Use system Chrome
             defaultViewport: {
                 width: 1920,
                 height: 1080
@@ -24,7 +26,7 @@ async function main() {
             ]
         });
         
-        const page = await browser.newPage();
+        page = await browser.newPage();
         await page.setViewport({ width: 1920, height: 1080 });
         
         // Add error handling for navigation timeouts
