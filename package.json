@@ -6,7 +6,8 @@
   "scripts": {
     "scrape": "node src/scrapers/scraper.js",
     "scrape:login": "node src/scrapers/urlpr.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node src/scrapers/test-scraper.js",
+    "test:ci": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "ens",
