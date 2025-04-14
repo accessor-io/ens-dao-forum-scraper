@@ -30,8 +30,8 @@ async function main() {
         await page.setViewport({ width: 1920, height: 1080 });
         
         // Add error handling for navigation timeouts
-        page.setDefaultNavigationTimeout(30000); // Increased timeout for testing
-        page.setDefaultTimeout(30000);
+        page.setDefaultNavigationTimeout(120000); // 2 minutes timeout for navigation
+        page.setDefaultTimeout(120000); // 2 minutes timeout for other operations
 
         // Read URLs from file
         console.log('Reading URLs from test-urls.txt...');
@@ -62,9 +62,7 @@ async function main() {
             fs.mkdirSync(outputDir, { recursive: true });
         }
 
-        console.log('\nWaiting 10 seconds for you to log in manually...');
-        await delay(10000); // Shorter wait time for testing
-        console.log('Starting URL processing...');
+        console.log('Starting URL processing immediately...');
 
         // Process each URL
         for (let [index, url] of urls.entries()) {
@@ -73,13 +71,17 @@ async function main() {
             try {
                 // Navigate to the page and wait for it to fully load
                 console.log(`Navigating to ${url}...`);
-                if (index === 0) {
-                    console.log('You have 10 seconds to log in on the first URL...');
-                }
                 await page.goto(url, { 
                     waitUntil: ['networkidle0', 'domcontentloaded', 'load'],
-                    timeout: 30000 
+                    timeout: 120000 // 2 minutes timeout for navigation
                 });
+                
+                // Give time to log in if needed
+                if (index === 0) {
+                    console.log('Page loaded. You have 3 minutes to log in if needed...');
+                    await delay(180000); // 3 minutes for login after page loads
+                    console.log('Login time completed, continuing with extraction...');
+                }
                 
                 // Wait for the content to load
                 console.log('Waiting for content...');
