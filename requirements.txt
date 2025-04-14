@@ -1,0 +1,2 @@
+tkinter
+psutil>=5.9.0 
