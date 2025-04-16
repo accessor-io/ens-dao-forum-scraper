@@ -48,7 +48,7 @@ app.get('/api/load-urls', (req, res) => {
 
 // API endpoint to scrape a URL
 app.post('/api/scrape-url', async (req, res) => {
-    const { url } = req.body;
+    const { url, skipWaiting } = req.body;
     let browser;
     
     if (!url) {
@@ -67,7 +67,7 @@ app.post('/api/scrape-url', async (req, res) => {
             fs.mkdirSync(outputDir, { recursive: true });
         }
         
-        // Launch headless browser with increased timeout
+        // Launch headless browser with optimized settings
         browser = await puppeteer.launch({
             headless: true,
             executablePath: '/usr/bin/google-chrome',
@@ -77,9 +77,10 @@ app.post('/api/scrape-url', async (req, res) => {
                 '--disable-web-security',
                 '--disable-features=IsolateOrigins,site-per-process',
                 '--disable-dev-shm-usage',
-                '--disable-gpu'
+                '--disable-gpu',
+                '--js-flags=--max-old-space-size=2048' // Increase memory limit
             ],
-            timeout: 120000 // 2 minutes timeout
+            timeout: 60000 // Reduced timeout to 1 minute
         });
         
         const page = await browser.newPage();
@@ -87,95 +88,96 @@ app.post('/api/scrape-url', async (req, res) => {
         // Set user agent to appear more like a regular browser
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36');
         
-        // Add request interception for better handling
+        // Block unnecessary resources to speed up loading
         await page.setRequestInterception(true);
         
         page.on('request', (request) => {
-            // Skip loading images, fonts, and other resources to speed up page load
-            if (['image', 'stylesheet', 'font', 'media'].includes(request.resourceType())) {
+            // Skip loading images, fonts, stylesheets and other resources to speed up page load
+            const blockedResourceTypes = ['image', 'stylesheet', 'font', 'media', 'other'];
+            if (blockedResourceTypes.includes(request.resourceType())) {
                 request.abort();
             } else {
                 request.continue();
             }
         });
         
-        // Implement retry logic
-        const maxRetries = 3;
         let success = false;
         let lastError;
         let content;
         let title;
         
-        for (let retry = 0; retry < maxRetries && !success; retry++) {
-            try {
-                if (retry > 0) {
-                    console.log(`Retry attempt ${retry+1}/${maxRetries} for ${url}`);
-                }
-                
-                // First try to navigate to the domain root
-                try {
-                    const domainMatch = url.match(/^https?:\/\/([^\/]+)/);
-                    if (domainMatch && domainMatch[0]) {
-                        console.log(`Navigating to domain root: ${domainMatch[0]}`);
-                        await page.goto(domainMatch[0], { 
-                            waitUntil: 'domcontentloaded',
-                            timeout: 30000 
-                        });
-                        // Wait a moment to let cookies or redirects settle
-                        await page.waitForTimeout(2000);
-                    }
-                } catch (domainError) {
-                    console.log(`Error visiting domain root: ${domainError.message}`);
-                }
-                
-                // Navigate to URL with increased timeout and less demanding waitUntil
-                await page.goto(url, { 
-                    waitUntil: 'domcontentloaded', // Less strict than networkidle0
-                    timeout: 90000 // 90 seconds
-                });
-                
-                // Wait for content with explicit timeout
+        try {
+            // Navigate directly to URL with reduced timeout
+            await page.goto(url, { 
+                waitUntil: 'domcontentloaded', 
+                timeout: 30000 // 30 seconds
+            });
+            
+            // Either wait for content or proceed immediately based on skipWaiting parameter
+            if (!skipWaiting) {
                 console.log(`Waiting for content to appear...`);
-                await page.waitForSelector('.topic-post article', { timeout: 30000 });
-                
-                // Extract content
-                const result = await page.evaluate(() => {
-                    function formatTimestamp(dataTime) {
+                try {
+                    await page.waitForSelector('.topic-post article', { timeout: 15000 });
+                } catch (waitError) {
+                    console.log(`Selector wait timed out, proceeding anyway: ${waitError.message}`);
+                    // Continue anyway after timeout
+                }
+            } else {
+                // Give a short delay for basic rendering
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            
+            // Extract content
+            const result = await page.evaluate(() => {
+                function formatTimestamp(dataTime) {
+                    try {
                         const date = new Date(parseInt(dataTime));
                         return date.toLocaleString();
+                    } catch (e) {
+                        return 'Unknown Date';
                     }
+                }
 
-                    function extractContent(element) {
-                        let content = '';
-                        element.childNodes.forEach(node => {
-                            if (node.nodeType === Node.TEXT_NODE) {
-                                content += node.textContent;
-                            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                                if (node.tagName === 'A') {
-                                    let linkText = node.textContent;
-                                    let linkHref = node.href;
-                                    content += `${linkText} (${linkHref})`;
-                                } else if (node.tagName === 'PRE' && node.querySelector('code')) {
-                                    let codeText = node.querySelector('code').textContent;
-                                    content += `\n\`\`\`\n${codeText}\n\`\`\`\n`;
-                                } else if (node.tagName === 'IMG') {
-                                    let altText = node.alt || 'Image';
-                                    let src = node.src;
-                                    content += `![${altText}](${src})`;
-                                } else {
-                                    content += extractContent(node);
-                                }
+                function extractContent(element) {
+                    let content = '';
+                    element.childNodes.forEach(node => {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            content += node.textContent;
+                        } else if (node.nodeType === Node.ELEMENT_NODE) {
+                            if (node.tagName === 'A') {
+                                let linkText = node.textContent;
+                                let linkHref = node.href;
+                                content += `${linkText} (${linkHref})`;
+                            } else if (node.tagName === 'PRE' && node.querySelector('code')) {
+                                let codeText = node.querySelector('code').textContent;
+                                content += `\n\`\`\`\n${codeText}\n\`\`\`\n`;
+                            } else if (node.tagName === 'IMG') {
+                                let altText = node.alt || 'Image';
+                                let src = node.src;
+                                content += `![${altText}](${src})`;
+                            } else {
+                                content += extractContent(node);
                             }
-                        });
-                        return content;
+                        }
+                    });
+                    return content;
+                }
+
+                const title = document.querySelector('.fancy-title') ? 
+                    document.querySelector('.fancy-title').innerText : 'No Title Found';
+                
+                const posts = document.querySelectorAll('.topic-post article');
+                let extractedText = `=== BEGINNING OF TOPIC ===\nTitle: ${title}\n\n`;
+
+                // If no posts found, try to extract whatever content is available
+                if (posts.length === 0) {
+                    const mainContent = document.querySelector('main') || document.querySelector('body');
+                    if (mainContent) {
+                        extractedText += `Content extracted from page:\n\n${mainContent.innerText}\n\n`;
+                    } else {
+                        extractedText += `No structured content found on this page.\n\n`;
                     }
-
-                    const title = document.querySelector('.fancy-title') ? 
-                        document.querySelector('.fancy-title').innerText : 'No Title Found';
-                    
-                    const posts = document.querySelectorAll('.topic-post article');
-                    let extractedText = `=== BEGINNING OF TOPIC ===\nTitle: ${title}\n\n`;
-
+                } else {
                     posts.forEach(post => {
                         let author = post.querySelector('.names .username') ? 
                             post.querySelector('.names .username').innerText.trim() : 'Unknown Author';
@@ -189,32 +191,28 @@ app.post('/api/scrape-url', async (req, res) => {
                         extractedText += `Author: ${author}\nDate: ${date}\n\n${content}\n\n`;
                         extractedText += '=== END OF POST ===\n\n';
                     });
+                }
 
-                    extractedText += '====== END OF TOPIC ======\n';
-                    return { title, content: extractedText };
-                });
-                
-                if (result) {
-                    content = result.content;
-                    title = result.title;
-                    success = true;
-                    break;
-                }
-            } catch (error) {
-                lastError = error;
-                console.error(`Error on attempt ${retry+1}: ${error.message}`);
-                
-                // Take screenshot on error for debugging
-                try {
-                    const errorScreenshot = path.join(process.cwd(), 'logs', `error-${Date.now()}.png`);
-                    await page.screenshot({ path: errorScreenshot });
-                    console.log(`Error screenshot saved to: ${errorScreenshot}`);
-                } catch (screenshotError) {
-                    console.error(`Could not take error screenshot: ${screenshotError.message}`);
-                }
-                
-                // Wait before retrying
-                await new Promise(resolve => setTimeout(resolve, 5000));
+                extractedText += '====== END OF TOPIC ======\n';
+                return { title, content: extractedText };
+            });
+            
+            if (result) {
+                content = result.content;
+                title = result.title || 'No Title Found';
+                success = true;
+            }
+        } catch (error) {
+            lastError = error;
+            console.error(`Error scraping: ${error.message}`);
+            
+            // Take screenshot on error for debugging
+            try {
+                const errorScreenshot = path.join(process.cwd(), 'logs', `error-${Date.now()}.png`);
+                await page.screenshot({ path: errorScreenshot });
+                console.log(`Error screenshot saved to: ${errorScreenshot}`);
+            } catch (screenshotError) {
+                console.error(`Could not take error screenshot: ${screenshotError.message}`);
             }
         }
         
@@ -232,7 +230,8 @@ app.post('/api/scrape-url', async (req, res) => {
                 success: true,
                 title,
                 content,
-                outputPath
+                outputPath,
+                filepath: outputPath
             });
         } else {
             return res.json({
@@ -242,6 +241,119 @@ app.post('/api/scrape-url', async (req, res) => {
         }
     } catch (error) {
         console.error('Error scraping URL:', error);
+        return res.json({
+            success: false,
+            error: error.message
+        });
+    } finally {
+        if (browser) {
+            await browser.close();
+        }
+    }
+});
+
+// New API endpoint to download scraped content
+app.get('/api/download/:filename', (req, res) => {
+    try {
+        const filename = req.params.filename;
+        const filePath = path.join(process.cwd(), 'data', 'output', filename);
+        
+        if (!fs.existsSync(filePath)) {
+            return res.status(404).send('File not found');
+        }
+        
+        res.download(filePath);
+    } catch (error) {
+        console.error('Error downloading file:', error);
+        res.status(500).send('Error downloading file');
+    }
+});
+
+// Add a new API endpoint for downloading HTML
+app.post('/api/download-html', async (req, res) => {
+    const { urls, indices } = req.body;
+    let browser;
+    
+    if (!urls || !Array.isArray(urls) || urls.length === 0) {
+        return res.json({
+            success: false,
+            error: 'No valid URLs provided'
+        });
+    }
+    
+    try {
+        // Create output directory for HTML files
+        const outputDir = path.join(process.cwd(), 'data', 'html');
+        if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+        }
+        
+        // Launch browser
+        browser = await puppeteer.launch({
+            headless: true,
+            executablePath: '/usr/bin/google-chrome',
+            args: [
+                '--no-sandbox', 
+                '--disable-setuid-sandbox',
+                '--disable-web-security'
+            ]
+        });
+        
+        const page = await browser.newPage();
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36');
+        
+        // Process URLs
+        const results = [];
+        
+        for (let i = 0; i < urls.length; i++) {
+            const url = urls[i];
+            console.log(`Downloading HTML for: ${url}`);
+            
+            try {
+                // Navigate to URL
+                await page.goto(url, { 
+                    waitUntil: 'domcontentloaded',
+                    timeout: 60000 
+                });
+                
+                // Get the HTML content
+                const html = await page.content();
+                
+                // Create filename based on URL
+                const urlObj = new URL(url);
+                const filename = `${urlObj.hostname.replace(/\./g, '_')}_${urlObj.pathname.replace(/\//g, '_')}.html`;
+                const filePath = path.join(outputDir, filename);
+                
+                // Save HTML to file
+                fs.writeFileSync(filePath, html);
+                
+                results.push({
+                    url,
+                    success: true,
+                    filename
+                });
+                
+                console.log(`Saved HTML for ${url} to ${filename}`);
+            } catch (error) {
+                console.error(`Error downloading HTML for ${url}: ${error.message}`);
+                results.push({
+                    url,
+                    success: false,
+                    error: error.message
+                });
+            }
+            
+            // Wait a moment before the next request
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+        
+        return res.json({
+            success: true,
+            outputDir,
+            results
+        });
+    } catch (error) {
+        console.error('Error in bulk HTML download:', error);
         return res.json({
             success: false,
             error: error.message

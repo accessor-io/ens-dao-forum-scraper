@@ -1,0 +1,234 @@
+=== BEGINNING OF TOPIC ===
+Title: [EP6.1] [Social] Removal of Brantly Millegan as Director of The ENS Foundation
+
+Author: Coltron.eth
+Date: 2/27/2022, 11:53:21 PM
+
+Status: Voting Period Closed. Not Passed. Please see Snapshot (https://snapshot.org/#/ens.eth/proposal/0xa9a2dc5a52ea54b478c4c5fea88540622dff7ad5000f8d146dff482c6e6b6055)
+ (https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092/15#summary-1)Summary
+The removal of Brantly Millegan as Director of The ENS Foundation (the “Foundation Company.”).
+Adapted from the original [EP6] Proposal (https://discuss.ens.domains/t/ep6-old-shelved/10554).
+ (https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092/15#abstract-2)Abstract
+This social proposal puts forth a vote to enact the possible removal of Brantly Millegan as the Director of the Foundation Company.
+This action is justifiable under Clause 15 of the Articles of Association of The ENS Foundation paragraph titled ‘Directors’ (https://464911102-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVAbPWWNVJRvupIW5EOre%2Fuploads%2Fgit-blob-4b4ba71c3fe2a3146e9b1402d03ecb69d89c0913%2FM%26A%20-%20Incorp%20-%20The%20ENS%20Foundation%20-%2026%20October%202021.pdf?alt=media#page=9) which states that:
+
+The Council has the power, exercisable by notice to the Foundation Company, to appoint or remove one or more directors of the Foundation Company.
+
+ (https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092/15#motivation-3)Motivation
+A timeline of events that led to this proposal has been posted by Community WG Stewards in another post here (https://discuss.ens.domains/t/ens-dao-next-steps-re-brantly/10424/15) and quoted below:
+
+In May 2016, Brantly Millegan tweeted, “Homosexual acts are evil. Transgenderism doesn’t exist. Abortion is murder. Contraception is a perversion. So is masturbation and porn.”
+On February 5th, 2022, brantly.eth, well-known as a prominent representative of the ENS protocol, defended these views in a publicly held Twitter space (https://www.dropbox.com/s/ljrp0vjibawuufr/Brantly%20ENS.mp4?dl=0).
+Irrespective of one’s personal beliefs, we, as ENS DAO Community Stewards, must set the example for inclusivity and must divide our community.
+Propagating rhetoric that is viewed as hateful and discriminatory is not conduct conducive to the role as a Community Steward. This conduct will not be tolerated despite one’s contributions to the protocol.
+
+Through this Social Proposal, the DAO shall decide whether Brantly Millegan is deemed capable, or otherwise, of continuing his role as the Director of the Foundation Company, and to appoint a suitable replacement if he is deemed incapable.
+ (https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092/15#specification-4)Specification
+The removal of Brantly Millegan’s directorship of the Foundation Company will be defined by a simple “Yes” or “No” vote with the option to abstain.
+Draft Snapshot Vote
+
+Should Brantly Millegan be removed from directorship of the Foundation Company?
+Choice 1: Yes
+Choice 2: No
+Choice 3: Abstain
+
+If Majority “Yes:” Brantly Millegan is voted to be removed and the results of [EP6.2] [Social] Election of a new Director of the ENS Foundation (https://discuss.ens.domains/t/ep6-2-social-replacement-of-brantly-millegan-as-director-of-the-ens-foundation/11093) regarding Brantly Millegan’s successor shall be effective immediately.
+If Majority “No:” Brantly Millegan is voted to remain in a directorship position over the Foundation Company, the results of [EP6.2] [Social] Election of a new Director of the ENS Foundation (https://discuss.ens.domains/t/ep6-2-social-replacement-of-brantly-millegan-as-director-of-the-ens-foundation/11093) shall be null and void.
+ (https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092/15#notice-to-the-ens-foundation-5)Notice to The ENS Foundation
+In line with this proposal, a formal notice is served to the ENS Foundation as follows:
+"Pursuant to Article 15 of the Articles of Association, the council, hereby, gives notice to the Foundation Company of a vote to remove Brantly Millegan as a director of the Foundation Company.
+Whereas, the council undertook a vote, via Snapshot, to remove Brantly Millegan, as a director of the Foundation Company;
+Whereas, by a majority of the votes cast is to remove Brantly Millegan, as a director of the Foundation Company;
+Wherefore, Brantly Millegan is hereby removed as a director of The ENS Foundation and shall cease and desist all duties thereto.
+The result to be formally noted in the council records and shall be promptly communicated to the Foundation Company without further process.
+This Notice shall have no force or effect, if the vote to remove Brantly Millegan fails to obtain a majority of the votes cast."
+ (https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092/15#next-steps-6)Next Steps
+Submit this proposal for a Snapshot vote beginning on 02/28/2022 for a period of 5 days in accordance with established ENS DAO Governance Process (https://docs.ens.domains/v/governance/process).
+Note: This is a Social Proposal; there is no on-chain voting. A Snapshot vote link will be added to this proposal when it becomes available.
+Note: Please consider redelegating your votes, if you believe someone more informed than you on this topic would best represent your interests. Here is a link detailing members’ ENS activity, it is just a tool that might assist you:  delegates leaderboard  (https://www.showkarma.xyz/dao/delegates/ens).
+
+=== END OF POST ===
+
+Author: Coltron.eth
+Date: 2/28/2022, 1:17:37 AM
+
+I have helped draft this proposal as a function and responsibility of my position as a delegate and elected steward. This action should not be construed as a measure of desire, or indicative of any motive, to remove Brantly from his directorship.
+Candidly, I find this process to be painful. Regardless of the outcome, I hope we can move beyond this issue as a community and rally behind what brought us here: the future of the Ethereum Name Service.
+
+=== END OF POST ===
+
+Author: berrios.eth
+Date: 2/28/2022, 6:57:41 AM
+
+I second @Coltron.eth (https://discuss.ens.domains/u/coltron.eth) thoughts.  The work I’ve done on [EP6.1] should not be taken that I seek a certain outcome or endorse a certain position or candidate.  It is for the community to decide.
+
+=== END OF POST ===
+
+Author: cottons.eth
+Date: 2/28/2022, 12:18:34 PM
+
+thank you for this.  i look forward to getting on with the business of ens as well.
+
+=== END OF POST ===
+
+Author: inplco
+Date: 3/4/2022, 12:57:56 AM
+
+The proposal doesn’t say what happens if majority ‘Abstains’. Does that make the vote void? What’s the outcome of DAO abstaining on a proposal through a vote?
+
+=== END OF POST ===
+
+Author: berrios.eth
+Date: 3/4/2022, 3:26:14 AM
+
+No, only the votes for and against determine the outcome of the proposal. Abstentions count toward determining a quorum and acknowledging the member’s participation in the voting process.
+
+=== END OF POST ===
+
+Author: berrios.eth
+Date: 3/4/2022, 3:30:44 AM
+
+I have been here for just over 100 days and want us to succeed as a community in this endeavor that we call ENS. These are my views that I hope you can take to heart:
+The community will speak and we should honor the results of the vote on [EP6.1][Social]. I acknowledge that there are hurt feelings and the vote does not invalidate them, nor dismiss members’ concerns.
+Let’s come together and move forward and focus on ENS and its future. In that vein, without doing anything that would be repugnant to our decentralized governance, an unwritten Code of Conduct should be followed that squarely addresses the issue, which has so divided us, that any expression of one’s sincerely held personal beliefs be done in a way that would not cast ENS in a poor light, whether intended or not, or adversely impact ENS’s mission and goal of inclusiveness. To be fair to our community, if you are a recognized representative of ENS, because you hold a leadership position or marketing role, please exercise good judgment and make it clear that any personal views on sensitive issues that you express are your own and in no way reflect those of the ENS community.
+
+=== END OF POST ===
+
+Author: keikreutler.eth
+Date: 3/4/2022, 11:27:19 AM
+
+I am casting my vote ‘For’ on EP6.1 (https://snapshot.org/#/ens.eth/proposal/0xa9a2dc5a52ea54b478c4c5fea88540622dff7ad5000f8d146dff482c6e6b6055) removing Brantly as a Director of the Foundation.
+This is for several reasons:
+
+
+Both those who reached out to me and those I reached out to who had delegated votes to me expressed their preference almost entirely for the ‘For’ outcome. Since I represent them I defer to them.
+
+
+The ENS DAO indicated it has the authority (https://464911102-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVAbPWWNVJRvupIW5EOre%2Fuploads%2Fgit-blob-4b4ba71c3fe2a3146e9b1402d03ecb69d89c0913%2FM%26A%20-%20Incorp%20-%20The%20ENS%20Foundation%20-%2026%20October%202021.pdf?alt=media#page=9) to remove and elect Directors of the ENS Foundation (its legal entity), so this action is within its initial scope. The role of Director symbolizes leadership, with the actual responsibilities and liabilities that entails, without pay currently. This is not a vote to rescind current income or remove the ability to contribute to ENS DAO.
+
+
+I don’t believe the views of leaders need to reflect their organization, but they should not have explicit bias against their members’ actions in their personal lives. This could lead to outcomes such as grants, positions, or other structural rewards not being given to certain members, in addition to interpersonal issues (although it’s important to say I don’t know of any cases of this involving Brantly to date; if I did I would be less equivocal). To be clear, I do not share Brantly’s views against homosexuality, transpersons, and abortion, and I don’t think they should represent ENS DAO.
+
+
+However, I have personally had misgivings about the overall process related to this issue. I often quote the tweet by TBSocialist: “We should be building organizing platforms owned by users and workers where it doesn’t matter that someone tweets something that you might disagree with but whether or not they are helping us reach concrete political objectives.”
+I still believe this to be true. Hateful speech is not “disagreement”, but I don’t want extreme cases like this one to set precedents that will overshadow disagreements that arise in the future.
+My personal thoughts can be summarized:
+
+
+Twitter is a terrible primary medium for governance discussions that involve any form of judicial, reparative process. We need dedicated, specialized facilitators to navigate these types of issues as soon as they arise, because they will continue to recur.
+
+
+I have the sense that True Names LTD acted too quickly in letting Brantly go, mostly in relation to (however rightful) public pressure. I worry this sets a poor precedent for DAOs, entities more loosely related to them, and overall acceptability of the process. (Although I do commend everyone who dedicated their thoughtful time to this public issue, having to deal with it as it was and holding space.)
+
+
+Outside of the specific statements on which this issue centered, I was disappointed that the process drove a divide in the larger community, between those who asked True Names LTD to act immediately and those in favor of different processes for ‘heretics’. What was missing here was understanding: why I’m interested in web3 is actually people with different values, processes, and viewpoints in the community talking to each other; again, I mean this outside of the specific statements on which this issue centered. The poor mediums we have for dealing with such an issue lead to a significant loss: now I know many good people who should be talking to each other, but aren’t, due to superficial takes on “cancel culture”. I hope parts of the space can mature beyond such superficial dismissals.
+
+
+Brantly remains the largest delegate in ENS DAO despite the narrative.
+
+
+For this reason, if I weren’t delegated to, I would consider voting ‘Abstain’.
+In light of these process issues, I’ve decided to diminish my role as a delegate after the initial 6 months term to which I publicly committed (https://twitter.com/keikreutler/status/1458744905833103362). This means there is two months’ notice for those who delegated to me to choose another delegate (https://sybil.org/#/delegates/ens) or decide to participate themselves (if you feel frustrated with my statement here and you delegated to me, I strongly recommend the latter option of trying out directly participating). I will reach out to everyone I know that has delegated to me. More delegates should hop in. I seek to continue to vote in a diminished personal capacity and support initiatives in the Public Goods and Meta-Governance working groups of ENS DAO, regardless.
+As someone who has worked at one organization in the space for over four years, I know the importance of commitment, but I also know the importance of being able to transparently step back when a role doesn’t fit and the governance situation perhaps has been misjudged. I was well aware (https://twitter.com/keikreutler/status/1458744548730064899) of some of the flaws of current web3 delegation systems, such as the high cost of delegation, lack of specific delegation time periods, and self-nomination as the only means of becoming a delegate rather than other forms of participation. However, this particular issue has made it clear for me that for the time being, I would rather contribute through building and participating personally rather than acting as a direct representative in a system still in need of maturing. I look forward to such systems evolving! The good news is that they can.
+
+=== END OF POST ===
+
+Author: berrios.eth
+Date: 3/4/2022, 1:07:53 PM
+
+I find little to which I disagree.  Thank you for your comments.
+
+=== END OF POST ===
+
+Author: inplco
+Date: 3/4/2022, 2:02:03 PM
+
+Your response is very detailed and thoughtful. I have recently wondered about these ↓
+
+
+ (https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092/9)
+![Image](https://discuss.ens.domains/user_avatar/discuss.ens.domains/keikreutler.eth/48/804_2.png) keikreutler.eth:
+
+lack of specific delegation time periods, and self-nomination as the only means of becoming a delegate rather than other forms of participation
+
+
+specific things myself that you mentioned. I have initiated a thread here that draws from your response: Beyond EP6: Addressing issues in governance emerging from the EP6 experience (https://discuss.ens.domains/t/beyond-ep6-addressing-issues-in-governance-emerging-from-the-ep6-experience/11231)
+
+=== END OF POST ===
+
+Author: irreverent
+Date: 3/4/2022, 4:37:06 PM
+
+I have voted “Against” this proposal.
+The DAO has the authority to remove Brantly, but I do not believe it is justified given the current context, rules, and the lack of a code of conduct that covers the TNL directors.
+Please push for changes to the rules instead, like helping and giving input to the community working group’s work on code of conduct (ie: should cover TNL directors), instead of proposing things like these which are clearly still controversial, digs up painful memories, and create further division amongst the community.
+I’m disappointed that this was proposed in its current state.  The ENS will now either be a “white man’s privilege club” or run by “witch hunters looking to cancel everyone”.  Both of these are quotes from people who I have talked to when discussing this incident.
+
+=== END OF POST ===
+
+Author: irreverent
+Date: 3/4/2022, 4:43:31 PM
+
+(https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092/1)
+![Image](https://discuss.ens.domains/user_avatar/discuss.ens.domains/coltron.eth/48/6949_2.png) Coltron.eth:
+
+Abstract
+This social proposal puts forth a vote to enact the possible removal of Brantly Millegan as the Director of the Foundation Company.
+This action is justifiable under Clause 15 of the Articles of Association of The ENS Foundation paragraph titled ‘Directors’  (https://464911102-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FVAbPWWNVJRvupIW5EOre%2Fuploads%2Fgit-blob-4b4ba71c3fe2a3146e9b1402d03ecb69d89c0913%2FM%26A%20-%20Incorp%20-%20The%20ENS%20Foundation%20-%2026%20October%202021.pdf?alt=media#page=9) which states that:
+
+The Council has the power, exercisable by notice to the Foundation Company, to appoint or remove one or more directors of the Foundation Company.
+
+
+
+I also want to point out how ridiculous this abstract is.
+It is CURRENTLY NOT justifiable, as whether it is so purely subjective.
+It makes it sounds like Brantly has breached a rule when he so far has not (this is to my understanding, if I am wrong please point it out and provide the evidence)
+
+=== END OF POST ===
+
+Author: berrios.eth
+Date: 3/4/2022, 5:54:06 PM
+
+You have a point.  Please forgive @Coltron.eth (https://discuss.ens.domains/u/coltron.eth), as he split the support for [EP6][Social] into two votes in a very short time and was not be as precise as it could have been in the Abstract.  Had I had time to review, I would have changed the language.  I drafted the official notices to The ENS Foundation, which is the formal document of the action to be taken.
+
+=== END OF POST ===
+
+Author: irreverent
+Date: 3/4/2022, 6:22:46 PM
+
+I have been trying to highlight this since the original draft by @inplco (https://discuss.ens.domains/u/inplco) during the incident ![:frowning:](https://discuss.ens.domains/images/emoji/twitter/frowning.png?v=12)
+I am not trying to point fingers though, I saw a improvements made in this version which I find a lot more reasonable already and @Coltron.eth (https://discuss.ens.domains/u/coltron.eth),and you + a few others, are definitely putting in more effort into this than me and is doing everything you guys can to make ENS a better place.
+
+  
+    
+    ![Image](https://discuss.ens.domains/user_avatar/discuss.ens.domains/irreverent/48/3488_2.png)
+    [EP6][Social] DAO-wide proposal to terminate Directorship of Brantly Millegan at the ENS Foundation (https://discuss.ens.domains/t/ep6-social-dao-wide-proposal-to-terminate-directorship-of-brantly-millegan-at-the-ens-foundation/10277/7) Temp Check (https://discuss.ens.domains/c/dao-wide/temp-check/50)
+  
+  
+    Let me make it clear.  This particular sentence implies that Brantly Millegan has done something that is against proper and expected conduct outlined in Clause 24, but when you look at Clause 24, it has nothing to do with conduct.
+
+=== END OF POST ===
+
+Author: jessepollak
+Date: 3/5/2022, 11:16:03 AM
+
+I’ve been keeping a running log of my thoughts on this issue here (https://docs.google.com/document/d/1ED2opQBKVc96yVBr9FZrFDvOziWgQoyIF-3SMvJJtSA/edit), but wanted to cross-share my decision on this and [EP6.2] (https://snapshot.org/#/ens.eth/proposal/0xc4bc562d32e59a528dec301261e8d2b3b0c6880c2b782201c2e9f1ff3979d165).
+Decision
+
+I will be voting “For” to recommend removing Brantly Millegan as a Director of the ENS Foundation in [EP6.1] (https://discuss.ens.domains/t/ep6-1-social-removal-of-brantly-millegan-as-director-of-the-ens-foundation/11092).
+I will be voting for avsa.eth to replace him in [EP6.2] (https://snapshot.org/#/ens.eth/proposal/0xc4bc562d32e59a528dec301261e8d2b3b0c6880c2b782201c2e9f1ff3979d165).
+
+Rationale
+
+The Director role is highly visible yet primarily administrative / perfunctory. It is an execution role for the DAO governance structure, which can be replaced / changed by the DAO and will gradually be reduced as possible. This means that it is less important in some ways (the judgment of the person matters less), but more important in others (the person is highly visible brand-wise).
+I disagree with brantly.eth’s stated views (https://docs.google.com/document#heading=h.kugyj3f8qe9s) and do not think having someone in the Director role who actively espouses them is net-positive for ENS or the broader crypto ecosystem. Given the limited operational complexity of the role, I also do not believe that the loss of brantly.eth’s applicable skills or tenure in the Director role pose a significant risk to the ecosystem.
+Based on these inputs, I’m recommending his removal. However, I want to state clearly that this is only a recommendation on the Director role. I support the current structure of ENS governance and respect the sovereignty of the significant delegated voice to brantly.eth, making him the current #1 voting delegate (https://www.withtally.com/governance/eip155:1:0x323A76393544d5ecca80cd6ef2A560C6a395b7E3). I encourage our community to continue delegating to delegates who reflect their views. You can do this on Tally here (https://www.withtally.com/governance/eip155:1:0x323A76393544d5ecca80cd6ef2A560C6a395b7E3) (click the purple “Delegate vote” button).
+Finally, I have been following avsa.eth for a while and he has shown himself to be a capable leader in the ENS ecosystem. I expect he will do a good job in the Director role.
+
+Next steps
+I am hopeful that this will continue to be a learning experience for the broader crypto community. My primary feedback is that I was close to voting “No” on the removal because I believe ENS governance would have benefited from having a working group that completed a detailed investigation and provided an analysis and recommendation to delegates. I am unconvinced that the “decentralized information gathering process” used for this decision will consistently lead to good decision making in similar situations. I would like to see us build that muscle going forward.
+Last note: thank you everyone for their work and time thinking through this difficult issue. Whatever your opinion is, voicing it and participating deserves to be celebrated and cherished.
+
+=== END OF POST ===
+
+====== END OF TOPIC ======

@@ -777,12 +777,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 16px;
-            background-color: var(--bg-secondary);
+            padding: 16px;
+            background-color: var(--primary-light);
             border-radius: var(--border-radius-sm);
             margin-bottom: 16px;
             border: 1px solid var(--border-light);
             display: none; /* Hidden by default */
+            animation: fadeIn 0.3s ease forwards;
+            box-shadow: var(--shadow);
         }
 
         .bulk-actions.active {
@@ -791,12 +793,14 @@
 
         .bulk-info {
             font-size: 14px;
-            color: var(--text-secondary);
+            font-weight: 600;
+            color: var(--primary-dark);
         }
 
         .bulk-buttons {
             display: flex;
             gap: 8px;
+            flex-wrap: wrap;
         }
     </style>
 </head>
@@ -868,6 +872,12 @@
                         <option value="alpha-asc">A-Z</option>
                         <option value="alpha-desc">Z-A</option>
                     </select>
+                    <div class="scraping-options" style="display: flex; align-items: center; margin-left: auto;">
+                        <label class="checkbox-label" style="display: flex; align-items: center; cursor: pointer; margin-right: 10px;">
+                            <input type="checkbox" id="skipWaiting" style="margin-right: 5px;">
+                            <span style="font-size: 14px;">Skip waiting (faster)</span>
+                        </label>
+                    </div>
                 </div>
 
                 <div id="bulkActions" class="bulk-actions">
@@ -875,6 +885,18 @@
                     <div class="bulk-buttons">
                         <button id="bulkScrape" class="btn btn-sm btn-accent">
                             <i class="fas fa-download"></i> Scrape Selected
+                        </button>
+                        <button id="bulkOpenAll" class="btn btn-sm btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Open Selected
+                        </button>
+                        <button id="bulkDownloadHTML" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-file-code"></i> Download HTML
+                        </button>
+                        <button id="bulkExportCSV" class="btn btn-sm btn-outline">
+                            <i class="fas fa-file-csv"></i> Export to CSV
+                        </button>
+                        <button id="bulkSelectAll" class="btn btn-sm btn-outline">
+                            <i class="fas fa-check-square"></i> Select All
                         </button>
                         <button id="bulkDeselect" class="btn btn-sm btn-outline">
                             <i class="fas fa-times"></i> Deselect All
@@ -952,6 +974,7 @@
         const previewTitle = document.getElementById('previewTitle');
         const previewContent = document.getElementById('previewContent');
         const previewClose = document.getElementById('previewClose');
+        const skipWaitingCheckbox = document.getElementById('skipWaiting');
         
         // Stats Elements
         const statTotalUrls = document.getElementById('stat-total-urls');
@@ -1198,12 +1221,13 @@
                 
                 log(`Scraping URL: ${url}`, 'info');
                 
+                const skipWaiting = skipWaitingCheckbox.checked;
                 const response = await fetch('/api/scrape-url', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ url })
+                    body: JSON.stringify({ url, skipWaiting })
                 });
                 
                 const data = await response.json();
@@ -1212,7 +1236,7 @@
                     stats.scraped++;
                     updateStats();
                     
-                    log(`Successfully scraped: ${data.outputPath}`, 'success');
+                    log(`✅ Successfully scraped: ${url}`, 'success');
                     
                     // Mark the URL as scraped
                     urlItem.style.backgroundColor = 'rgba(16, 185, 129, 0.1)';
@@ -1224,16 +1248,38 @@
                     previewBtn.onclick = () => {
                         showPreview(data.title || 'Scraped Content', formatPreviewContent(data.content || 'No content available'));
                     };
+                    
+                    // Extract filename from filepath
+                    const filename = data.outputPath.split('/').pop();
+                    urlItem.dataset.filename = filename;
+                    
+                    const statusBadge = urlItem.querySelector('.status-badge');
+                    if (statusBadge) {
+                        statusBadge.textContent = 'Scraped';
+                        statusBadge.className = 'status-badge badge-success';
+                    }
+                    
+                    // Add download button if not already present
+                    const urlButtons = urlItem.querySelector('.url-buttons');
+                    if (urlButtons && !urlItem.querySelector('.btn-download')) {
+                        const downloadBtn = document.createElement('button');
+                        downloadBtn.className = 'btn btn-sm btn-secondary btn-download';
+                        downloadBtn.innerHTML = '<i class="fas fa-file-download"></i> Download';
+                        downloadBtn.addEventListener('click', () => {
+                            window.location.href = `/api/download/${filename}`;
+                        });
+                        urlButtons.appendChild(downloadBtn);
+                    }
                 } else {
                     stats.errors++;
                     updateStats();
-                    log(`Error scraping: ${data.error}`, 'error');
+                    log(`❌ Error scraping URL: ${data.error}`, 'error');
                     urlItem.style.borderLeft = '3px solid var(--danger)';
                 }
             } catch (error) {
                 stats.errors++;
                 updateStats();
-                log(`Error during scrape: ${error.message}`, 'error');
+                log(`❌ Exception while scraping: ${error.message}`, 'error');
                 urlItem.style.borderLeft = '3px solid var(--danger)';
             } finally {
                 // Restore button state
@@ -1311,27 +1357,126 @@
             updateBulkActions();
         });
 
-        document.getElementById('bulkScrape').addEventListener('click', async () => {
-            const bulkScrapeBtn = document.getElementById('bulkScrape');
-            bulkScrapeBtn.disabled = true;
-            bulkScrapeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Scraping...';
-            
-            for (const index of selectedURLs) {
-                const url = urls[index];
-                const item = document.querySelector(`.url-item[data-index="${index}"]`);
-                const scrapeBtn = item.querySelector('.btn-accent');
-                
-                try {
-                    await scrapeUrl(url, index, scrapeBtn, item);
-                    // Add a small delay between requests
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                } catch (error) {
-                    console.error(`Error scraping ${url}:`, error);
+        document.getElementById('bulkSelectAll').addEventListener('click', () => {
+            const visibleItems = document.querySelectorAll('.url-item');
+            visibleItems.forEach(item => {
+                const checkbox = item.querySelector('.url-checkbox');
+                checkbox.checked = true;
+                selectedURLs.add(parseInt(item.dataset.index));
+            });
+            updateBulkActions();
+        });
+
+        document.getElementById('bulkOpenAll').addEventListener('click', () => {
+            if (selectedURLs.size > 10) {
+                if (!confirm(`You are about to open ${selectedURLs.size} tabs. This might slow down your browser. Continue?`)) {
+                    return;
                 }
             }
             
-            bulkScrapeBtn.disabled = false;
-            bulkScrapeBtn.innerHTML = '<i class="fas fa-download"></i> Scrape Selected';
+            for (const index of selectedURLs) {
+                const url = urls[index];
+                window.open(url, '_blank');
+            }
+        });
+
+        document.getElementById('bulkDownloadHTML').addEventListener('click', () => {
+            const selectedCheckboxes = document.querySelectorAll('.url-select:checked');
+            const selectedItems = Array.from(selectedCheckboxes).map(checkbox => 
+                document.querySelector(`.url-item[data-url="${checkbox.dataset.url}"]`)
+            ).filter(item => item && item.dataset.status === 'scraped' && item.dataset.filename);
+            
+            if (selectedItems.length === 0) {
+                log('No scraped URLs selected for download', 'warning');
+                return;
+            }
+            
+            // Download each file sequentially
+            selectedItems.forEach(item => {
+                if (item.dataset.filename) {
+                    const link = document.createElement('a');
+                    link.href = `/api/download/${item.dataset.filename}`;
+                    link.download = item.dataset.filename;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            });
+            
+            log(`Downloading ${selectedItems.length} files`, 'info');
+        });
+
+        document.getElementById('bulkExportCSV').addEventListener('click', async () => {
+            const bulkExportBtn = document.getElementById('bulkExportCSV');
+            bulkExportBtn.disabled = true;
+            bulkExportBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Exporting...';
+            
+            try {
+                const selectedUrls = Array.from(selectedURLs).map(index => urls[index]);
+                
+                // Create CSV content
+                let csvContent = "data:text/csv;charset=utf-8,";
+                csvContent += "URL,Status\n";
+                
+                for (const index of selectedURLs) {
+                    const url = urls[index];
+                    const status = getUrlStatus(index);
+                    csvContent += `"${url}","${status}"\n`;
+                }
+                
+                // Create download link
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", `url_export_${new Date().toISOString().slice(0,10)}.csv`);
+                document.body.appendChild(link);
+                
+                // Download the CSV file
+                link.click();
+                document.body.removeChild(link);
+                
+                log(`Exported ${selectedURLs.size} URLs to CSV`, 'success');
+            } catch (error) {
+                log(`Error exporting to CSV: ${error.message}`, 'error');
+            } finally {
+                bulkExportBtn.disabled = false;
+                bulkExportBtn.innerHTML = '<i class="fas fa-file-csv"></i> Export to CSV';
+            }
+        });
+        
+        // Bulk Actions
+        document.getElementById('bulkScrape').addEventListener('click', async () => {
+            const selectedCheckboxes = document.querySelectorAll('.url-select:checked');
+            const selectedUrls = Array.from(selectedCheckboxes).map(checkbox => checkbox.dataset.url);
+            
+            if (selectedUrls.length === 0) {
+                log('No URLs selected for bulk scraping', 'warning');
+                return;
+            }
+            
+            // Show progress
+            progressStatus.style.display = 'block';
+            progressText.textContent = `0/${selectedUrls.length} Completed`;
+            progressFill.style.width = '0%';
+            
+            log(`Starting bulk scrape of ${selectedUrls.length} URLs`, 'info');
+            
+            let completed = 0;
+            let successful = 0;
+            
+            // Process URLs sequentially to avoid overwhelming the browser
+            for (const url of selectedUrls) {
+                const result = await scrapeUrl(url);
+                completed++;
+                if (result.success) successful++;
+                
+                // Update progress
+                progressText.textContent = `${completed}/${selectedUrls.length} Completed`;
+                progressFill.style.width = `${(completed / selectedUrls.length) * 100}%`;
+            }
+            
+            log(`Bulk scraping completed. ${successful}/${selectedUrls.length} URLs scraped successfully.`, 
+                successful === selectedUrls.length ? 'success' : 'warning');
         });
         
         // Initialize
