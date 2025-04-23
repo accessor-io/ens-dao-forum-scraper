@@ -29,17 +29,8 @@ A tool for scraping and processing content from ENS forums.
 Run the standard scraper:
 
 ```
-npm run scrape
+npm run ui
 ```
-
-### Advanced Scraper with Firefox Login
-
-Run the advanced scraper that uses Firefox cookies for authentication:
-
-```
-npm run scrape:login
-```
-
 ### Bookmarklet
 
 A bookmarklet is also available for manual scraping:
