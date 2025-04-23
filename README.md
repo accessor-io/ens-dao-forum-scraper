@@ -1,76 +1,117 @@
 # ENS Forum Scraper
 
-A tool for scraping and processing content from ENS forums.
+A tool for scraping and processing content from ENS forums. This tool helps collect and analyze forum data for ENS-related discussions and content.
+
+## Features
+
+- Automated forum content scraping
+- Data processing and analysis
+- Export capabilities for collected data
+- Support for multiple forum sections
+- Configurable scraping parameters
 
 ## Project Structure
 
 ```
-.
-├── data/           # Data storage directory
-│   └── output/     # Scraped data output
-├── src/            # Source code
-│   └── scrapers/   # Scraper scripts
-└── logs/           # Log files
+forumtool/
+├── src/                    # Source code directory
+├── tests/                  # Test files
+├── data/                   # Data storage
+├── config/                 # Configuration files
+└── docs/                   # Documentation
 ```
 
-## Setup
+## Prerequisites
 
-1. Install dependencies:
-   ```
-   npm install
+- Python 3.8 or higher
+- pip (Python package manager)
+- Git
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   cd forumtool
    ```
 
-2. Make sure you have the required URLs in a `waymore.txt` file.
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Configuration
+
+1. Copy the example configuration file:
+   ```bash
+   cp config/config.example.yaml config/config.yaml
+   ```
+
+2. Edit `config/config.yaml` with your settings:
+   - Forum URLs
+   - Scraping parameters
+   - Output preferences
 
 ## Usage
 
-### Simple Scraper
+1. Basic scraping:
+   ```bash
+   python src/main.py
+   ```
 
-Run the standard scraper:
+2. Scrape specific sections:
+   ```bash
+   python src/main.py --section [section-name]
+   ```
 
+3. Export data:
+   ```bash
+   python src/main.py --export [format]
+   ```
+
+## Development
+
+1. Create a new branch for your feature:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. Make your changes and commit:
+   ```bash
+   git add .
+   git commit -m "Description of your changes"
+   ```
+
+3. Push your changes:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+## Testing
+
+Run the test suite:
+```bash
+python -m pytest tests/
 ```
-npm run scrape
-```
 
-### Advanced Scraper with Firefox Login
+## Contributing
 
-Run the advanced scraper that uses Firefox cookies for authentication:
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-```
-npm run scrape:login
-```
+## License
 
-### Bookmarklet
+[License information]
 
-A bookmarklet is also available for manual scraping:
+## Support
 
-1. Create a new bookmark in your browser
-2. Set the name to "ENS Forum Scraper"
-3. Copy the content of `src/scrapers/bookmarklet.js` as the URL
-4. Navigate to the forum page you want to scrape
-5. Click the bookmarklet
-
-## Output
-
-Scraped data is saved in the `data/output` directory in text format with the following structure:
-
-```
-=== BEGINNING OF TOPIC ===
-Title: [Topic Title]
-
-Author: [Author Name]
-Date: [Post Date]
-
-[Post Content]
-
-=== END OF POST ===
-
-Author: [Reply Author]
-Date: [Reply Date]
-
-[Reply Content]
-
-=== END OF POST ===
-
-====== END OF TOPIC ======
-``` 
+For support, please [contact details or support channels]

@@ -1,0 +1,30 @@
+=== BEGINNING OF TOPIC ===
+Title: Event: DAO Onboarding Call #1
+
+Author: Coltron.eth
+Date: 3/3/2022, 4:07:20 PM
+
+The Community Working Group will be hosting a recurring DAO-Wide onboarding call every Friday at 1:30pm EST (6:30pm UTC).
+Meeting Link: https://meet.google.com/bqc-nskn-rzu (https://meet.google.com/bqc-nskn-rzu)
+The objective of this call is to provide a baseline level of knowledge about the ENS DAO and identify how new or existing contributors can become more directly involved.
+A sample of the topics that we expect to cover are below, and a formal agenda will be shared on the host’s screen during the call. This first call is expected to run for 30min, but will ultimately be dependent on ensuring all questions are answered.
+
+ (https://discuss.ens.domains/t/event-dao-onboarding-call-1/11191#topics-that-will-be-discussed-in-the-call-1)Topics that will be discussed in the call.
+
+What is a DAO?
+Purpose of the ENS DAO.
+ENS DAO History
+Roles within the DAO.
+Working group structure and processes.
+
+Subgroup formation and budgets.
+
+
+$ENS Governance Token.
+Important dates
+Current Proposals
+Answering your Questions!
+
+=== END OF POST ===
+
+====== END OF TOPIC ======

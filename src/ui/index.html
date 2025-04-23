@@ -850,6 +850,12 @@
                     <button id="loadUrls" class="btn btn-primary">
                         <i class="fas fa-file-import"></i> Load URLs
                     </button>
+                    <button id="importUrlFile" class="btn btn-primary">
+                        <i class="fas fa-upload"></i> Import URL File
+                    </button>
+                    <button id="runWayMore" class="btn btn-accent">
+                        <i class="fas fa-spider"></i> Run WayMore
+                    </button>
                     <button id="loadCustomUrl" class="btn btn-outline">
                         <i class="fas fa-plus"></i> Add Custom URL
                     </button>
@@ -944,7 +950,8 @@
             <div class="card-body">
                 <h3 style="margin-bottom: 12px;">How it works</h3>
                 <ol class="status-steps">
-                    <li>Load URLs from waymore.txt or add them manually</li>
+                    <li>Load URLs from waymore.txt or import a custom URL file</li>
+                    <li>Run WayMore to discover more URLs without downloading content</li>
                     <li>Click <span style="color: var(--primary);"><i class="fas fa-external-link-alt"></i> Open</span> to view the page in a new tab</li>
                     <li>Log in if required</li>
                     <li>Click <span style="color: var(--accent-dark);"><i class="fas fa-download"></i> Scrape</span> to extract content</li>
@@ -1477,6 +1484,136 @@
             
             log(`Bulk scraping completed. ${successful}/${selectedUrls.length} URLs scraped successfully.`, 
                 successful === selectedUrls.length ? 'success' : 'warning');
+        });
+        
+        // Import URLs from file
+        document.getElementById('importUrlFile').addEventListener('click', () => {
+            // Create a file input element
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = '.txt';
+            fileInput.style.display = 'none';
+            document.body.appendChild(fileInput);
+            
+            fileInput.addEventListener('change', async (event) => {
+                if (event.target.files.length > 0) {
+                    const file = event.target.files[0];
+                    const importBtn = document.getElementById('importUrlFile');
+                    
+                    try {
+                        importBtn.disabled = true;
+                        importBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Importing...';
+                        log('Importing URLs from file...', 'info');
+                        
+                        const formData = new FormData();
+                        formData.append('urlFile', file);
+                        
+                        const response = await fetch('/api/import-urls', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (data.success) {
+                            urls = data.urls;
+                            stats.totalUrls = urls.length;
+                            updateStats();
+                            
+                            urlCount.textContent = urls.length;
+                            displayUrls();
+                            urlListEmpty.style.display = 'none';
+                            urlListContent.style.display = 'block';
+                            log(data.message, 'success');
+                        } else {
+                            stats.errors++;
+                            updateStats();
+                            log(`Error: ${data.error}`, 'error');
+                        }
+                    } catch (error) {
+                        stats.errors++;
+                        updateStats();
+                        log(`Error importing URLs: ${error.message}`, 'error');
+                    } finally {
+                        importBtn.disabled = false;
+                        importBtn.innerHTML = '<i class="fas fa-upload"></i> Import URL File';
+                        document.body.removeChild(fileInput);
+                    }
+                }
+            });
+            
+            fileInput.click();
+        });
+        
+        // Run WayMore to grab URLs only
+        document.getElementById('runWayMore').addEventListener('click', async () => {
+            const runBtn = document.getElementById('runWayMore');
+            let urlsToProcess = [];
+            
+            // Get selected URLs or use all current URLs
+            const selectedCheckboxes = document.querySelectorAll('.url-checkbox:checked');
+            if (selectedCheckboxes.length > 0) {
+                urlsToProcess = Array.from(selectedCheckboxes).map(checkbox => {
+                    const index = parseInt(checkbox.dataset.index);
+                    return urls[index];
+                });
+            } else {
+                urlsToProcess = urls.length > 0 ? urls : [];
+                
+                // If no URLs are available, prompt for domain input
+                if (urlsToProcess.length === 0) {
+                    const domain = prompt('Enter a domain to crawl (e.g., example.com):');
+                    if (domain && domain.trim()) {
+                        urlsToProcess = [`https://${domain.trim().replace(/^https?:\/\//, '')}`];
+                    } else {
+                        return; // User cancelled
+                    }
+                }
+            }
+            
+            if (urlsToProcess.length === 0) {
+                log('No URLs available to process with WayMore', 'error');
+                return;
+            }
+            
+            try {
+                runBtn.disabled = true;
+                runBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Running...';
+                log(`Running WayMore on ${urlsToProcess.length} URLs (URLs only mode)...`, 'info');
+                
+                const response = await fetch('/api/run-waymore', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ urls: urlsToProcess })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    urls = data.urls;
+                    stats.totalUrls = urls.length;
+                    updateStats();
+                    
+                    urlCount.textContent = urls.length;
+                    displayUrls();
+                    urlListEmpty.style.display = 'none';
+                    urlListContent.style.display = 'block';
+                    log(data.message, 'success');
+                } else {
+                    stats.errors++;
+                    updateStats();
+                    log(`Error: ${data.error}`, 'error');
+                }
+            } catch (error) {
+                stats.errors++;
+                updateStats();
+                log(`Error running WayMore: ${error.message}`, 'error');
+            } finally {
+                runBtn.disabled = false;
+                runBtn.innerHTML = '<i class="fas fa-spider"></i> Run WayMore';
+            }
         });
         
         // Initialize

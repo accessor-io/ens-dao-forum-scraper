@@ -2,6 +2,19 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
+const multer = require('multer');
+const { spawn } = require('child_process');
+
+// Set up file upload using multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, path.join(process.cwd(), 'data'));
+    },
+    filename: function (req, file, cb) {
+        cb(null, 'imported-urls.txt');
+    }
+});
+const upload = multer({ storage: storage });
 
 const app = express();
 const PORT = 3000;
@@ -39,6 +52,137 @@ app.get('/api/load-urls', (req, res) => {
         });
     } catch (error) {
         console.error('Error loading URLs:', error);
+        return res.json({
+            success: false,
+            error: error.message
+        });
+    }
+});
+
+// New API endpoint to import URLs from a file
+app.post('/api/import-urls', upload.single('urlFile'), (req, res) => {
+    try {
+        if (!req.file) {
+            return res.json({
+                success: false,
+                error: 'No file uploaded'
+            });
+        }
+        
+        const filePath = req.file.path;
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        const urls = fileContent
+            .split('\n')
+            .filter(url => url.trim() && !url.includes('/u/'))
+            .map(url => url.trim());
+        
+        // Merge with existing waymore.txt or create a new one
+        const waymoreFile = path.join(process.cwd(), 'waymore.txt');
+        let existingUrls = [];
+        
+        if (fs.existsSync(waymoreFile)) {
+            existingUrls = fs.readFileSync(waymoreFile, 'utf8')
+                .split('\n')
+                .filter(url => url.trim() && !url.includes('/u/'))
+                .map(url => url.trim());
+        }
+        
+        // Combine and remove duplicates
+        const combinedUrls = [...new Set([...existingUrls, ...urls])];
+        
+        // Write back to waymore.txt
+        fs.writeFileSync(waymoreFile, combinedUrls.join('\n'), 'utf8');
+        
+        return res.json({
+            success: true,
+            message: `Added ${urls.length} URLs. Waymore.txt now has ${combinedUrls.length} URLs.`,
+            urls: combinedUrls
+        });
+    } catch (error) {
+        console.error('Error importing URLs:', error);
+        return res.json({
+            success: false,
+            error: error.message
+        });
+    }
+});
+
+// New API endpoint to run WayMore and only grab URLs
+app.post('/api/run-waymore', (req, res) => {
+    try {
+        const { urls } = req.body;
+        
+        if (!urls || !Array.isArray(urls) || urls.length === 0) {
+            return res.json({
+                success: false,
+                error: 'No URLs provided'
+            });
+        }
+        
+        // Create a temporary file to hold the URLs
+        const tempFile = path.join(process.cwd(), 'data', 'waymore-input.txt');
+        fs.writeFileSync(tempFile, urls.join('\n'), 'utf8');
+        
+        // Run WayMore command to only grab URLs without downloading
+        const waymoreProcess = spawn('python3', [
+            '-m', 'waymore',
+            '-i', tempFile,
+            '-mode', 'urls-only',
+            '-oU', path.join(process.cwd(), 'waymore.txt')
+        ]);
+        
+        let output = '';
+        let errorOutput = '';
+        
+        waymoreProcess.stdout.on('data', (data) => {
+            output += data.toString();
+            console.log(data.toString());
+        });
+        
+        waymoreProcess.stderr.on('data', (data) => {
+            errorOutput += data.toString();
+            console.error(data.toString());
+        });
+        
+        waymoreProcess.on('close', (code) => {
+            if (code === 0) {
+                // Successfully ran WayMore, now read the output file
+                try {
+                    const waymoreFile = path.join(process.cwd(), 'waymore.txt');
+                    
+                    if (fs.existsSync(waymoreFile)) {
+                        const fileContent = fs.readFileSync(waymoreFile, 'utf8');
+                        const newUrls = fileContent
+                            .split('\n')
+                            .filter(url => url.trim() && !url.includes('/u/'))
+                            .map(url => url.trim());
+                        
+                        return res.json({
+                            success: true,
+                            message: `WayMore found ${newUrls.length} URLs`,
+                            urls: newUrls
+                        });
+                    } else {
+                        return res.json({
+                            success: false,
+                            error: 'WayMore ran but no output file was found'
+                        });
+                    }
+                } catch (readError) {
+                    return res.json({
+                        success: false,
+                        error: readError.message
+                    });
+                }
+            } else {
+                return res.json({
+                    success: false,
+                    error: `WayMore failed with code ${code}. Error: ${errorOutput}`
+                });
+            }
+        });
+    } catch (error) {
+        console.error('Error running WayMore:', error);
         return res.json({
             success: false,
             error: error.message
