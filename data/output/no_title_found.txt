@@ -1,93 +1,36 @@
 === BEGINNING OF TOPIC ===
 Title: No Title Found
 
-Author: blockedchain
-Date: 11/5/2021, 3:30:57 PM
+Author: chiefmcconnell.eth
+Date: 11/10/2021, 8:24:24 PM
 
-ENS name: markmcintosh.eth
-My reasons for wanting to be a delegate: Governance will make or break this whole show. Decentralized governance has little precedent. The discussion about issuing tokens based on wallet versus domains showed how difficult it is to find consensus. I can help.
-My view on each section of the proposed ENS Constitution 902
+chiefmcconnell.eth , johnmcconnell.eth
+I would like to be able to help shape the future of ENS and how the technology and community grow
+My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
+
 Name ownership shall not be infringed: Agree
-Fees are primarily an incentive mechanism: Agree. But primarily implies there are other reasons so we need to be consistent and specific.
-Income funds ENS and other public goods: Agree.
-ENS Integrates with the global namespace: Agree.
-My web3 qualifications / skills: This world needs some logic, contract and governance experience. I have a law degree and a license. I own some NFTs and have used Alchemy and Buildspace to deploy smart contracts (Ropsten and Rinkeby testnets only). Web3 also needs some emotional intelligence and empathy and I have loads of those.
+Fees are primarily an incentive mechanism: Agree
+Income funds ENS and other public goods: Agree
+ENS Integrates with the global namespace: Agree (wholeheartedly)
+
+Been in the Web2 space for many moons. Spent the entire year this year diving deep into web3 and smartcontracts. Built a small army of developers on discord (blockhead devs) and have been pushing the learning and building of blockchain things. Deep in the discords (all of them it seems like) and actively working to help push the boundaries of what the blockchain and web3 will do for our society and our planet.
 
 === END OF POST ===
 
-Author: protocol_review_dao
-Date: 11/5/2021, 3:30:58 PM
+Author: Apper
+Date: 11/10/2021, 8:24:25 PM
+
+I have voted for you
+
+=== END OF POST ===
+
+Author: zorrik
+Date: 11/10/2021, 8:31:07 PM
 
 ENS name:
-protocolreview.eth
 My reasons for wanting to be a delegate:
-We love ENS! The purpose of our DAO is to make protocols more accessible. We believe that with our expertise we are capable of assessing the ramification and risks of updates to the ENS protocol.
-My view on each section of the proposed ENS Constitution 798
-Name ownership is an absolute right: (Agree/Disagree/Comment):
-Agree
-Registration fees exist as an incentive mechanism: (Agree/Disagree/Comment):
-Agree
-Income funds ENS and other public goods: (Agree/Disagree/Comment):
-Agree
-ENS Integrates with the global namespace: (Agree/Disagree/Comment):
-Agree
-My web3 qualifications / skills:
-Protocol Review DAO is a group of experienced web3 engineers, founders and builders. Members of our DAO have previously worked on improvement proposals to ENS (eip-2544). Read more about our DAOs launch and purpose here (https://g.mirror.xyz/crowdfunds/0x1B7D237406f51978d48BFCEc2211c5EB97a344AA).
-
-=== END OF POST ===
-
-Author: irreverent
-Date: 11/5/2021, 3:30:59 PM
-
-ENS name: irreverent.eth
-My reasons for wanting to be a delegate: For a project to succeed, support from its community is key. In an ideal world, everyone would self-delegate and vote in accordance to their own views for every proposed constitution, but this often isn’t the case. The reason that I want to be a delegate is to keep those who for whatever reason may not self-delegate informed and in the loop so that ultimately their votes really do represent their own views (or they revert to self-delegation or find someone else).
-My view on each section of the proposed ENS Constitution
-
-
-Name ownership shall not be infringed:  Agree, as stated in the proposal, for fairness.
-
-
-Fees are primarily an incentive mechanism:  Disagree. I believe that the fee’s only purpose is to provide enough revenue to the DAO to fund ongoing development and improvement of ENS. I also believe that a fee high enough for people to prevent speculative registrations will make ENS inaccessible for some others.
-
-
-Income funds ENS and other public goods:  Disagree. ENS governance should only use the funds to support projects that will further the development and improvements of the ENS system.
-
-
-ENS Integrates with the global namespace:  Agree.
-
-
-My web3 qualifications / skills:
-I am currently working on a multichain + multiwallet tool as a dev lead.
-
-=== END OF POST ===
-
-Author: protocol_review_dao
-Date: 11/5/2021, 4:00:02 PM
-
-ENS name:
-protocolreview.eth
-My reasons for wanting to be a delegate:
-We love ENS! The purpose of our DAO is to make protocols more accessible. We believe that with our expertise we are capable of assessing the ramification and risks of updates to the ENS protocol.
-My view on each section of the proposed ENS Constitution 798
-Name ownership is an absolute right: (Agree/Disagree/Comment):
-Agree
-Registration fees exist as an incentive mechanism: (Agree/Disagree/Comment):
-Agree
-Income funds ENS and other public goods: (Agree/Disagree/Comment):
-Agree
-ENS Integrates with the global namespace: (Agree/Disagree/Comment):
-Agree
-My web3 qualifications / skills:
-Protocol Review DAO is a group of experienced web3 engineers, founders and builders. Members of our DAO have previously worked on improvement proposals to ENS (eip-2544). Read more about our DAOs launch and purpose here (https://g.mirror.xyz/crowdfunds/0x1B7D237406f51978d48BFCEc2211c5EB97a344AA).
-
-=== END OF POST ===
-
-Author: windkoh.eth
-Date: 11/5/2021, 4:02:42 PM
-
-My reasons for wanting to be a delegate:
-I want to have my voice here to build a fair and balance community that will benefit all the domains owners.
-My view on each section of the [proposed ENS Constitution ]
+I would like to be a part of this change.
+My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
 
 Name ownership shall not be infringed: (Agree)
 Fees are primarily an incentive mechanism: (Agree)
@@ -95,46 +38,219 @@ Income funds ENS and other public goods: (Agree)
 ENS Integrates with the global namespace: (Agree)
 
 My web3 qualifications / skills:
-I do not have a strong skill set of web3. But I had been a marketing management role for the past 20 years.
+Lead architect of deepwaters
 
 === END OF POST ===
 
-Author: Jeff.eth
-Date: 11/5/2021, 4:09:13 PM
+Author: shivagundavaram
+Date: 11/10/2021, 9:32:55 PM
 
-ENS name: Jeff.eth
-My reasons for wanting to be a delegate: Longtime ENS user and advocate.  Feel that I will do a good job of protecting the less tangible but still valuable parts of the ENS community’s culture (https://twitter.com/technocrypto/status/1455328006860386307).
+ENS name: shiva.gundavaram.eth
+My reasons for wanting to be a delegate: I would like to be a part of this change and learn about ENS
+My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
+
+Name ownership shall not be infringed: Agree
+Fees are primarily an incentive mechanism: Agree
+Income funds ENS and other public goods: Agree
+ENS Integrates with the global namespace: Agree
+
+My web3 qualifications / skills: None. Willing to learn
+
+=== END OF POST ===
+
+Author: epistetechnician
+Date: 11/10/2021, 9:37:45 PM
+
+ENS Name: epistetech.eth
+Becoming a delegate is a meaningful role to take on. I see delegation as a necessary component of democratization. Contributing to this DAO through delegating is something that needs to be done given the mission of ENS. The mission of ENS is about proof of identity and digital freedom. Lets cooperate to build the metaverse!
+
+Name ownership shall not be infringed: Agree
+Fees are primarily an incentive mechanism: Agree
+Income funds ENS and other public goods: Agree
+ENS Integrates with the global namespace: Agree
+
+I am an environmental tokenomist who was saved by web3 and started developing smart contracts that are built to detect Pigou and Coase externalities through NFTs and. I am currently working on a DAO for a slow-fashion initiative. In my free time I try to find ways to optimize smart contracts platforms by introducing quantum state consensus. I believe we need to anticipate emerging technology together so we can integrate early to thrive as a community.
+
+=== END OF POST ===
+
+Author: julia
+Date: 11/10/2021, 10:01:03 PM
+
+ENS name: juliawu.eth
+My reasons for wanting to be a delegate:
+Having purchased and used tons of off-chain domain names, I appreciate the importance of a well-governed, accessible and inclusive naming system. As web3 grows, I believe that ENS will continue to play a critical role in the naming/referencing of wallets, apps and websites. I would like to help shape the future of this important protocol.
+*My view on each section of the proposed ENS Constitution
+
+Name ownership shall not be infringed: Agree
+
+Fees are primarily an incentive mechanism: Agree
+
+Income funds ENS and other public goods: Agree
+
+ENS Integrates with the global namespace: Agree
+
+
+My web3 qualifications / skills:
+I love the intersection of computer science and economics (my fields of study at Brown University).
+I taught myself Solidity while wrapping up college in 2017, and have since built over 10 crypto projects (https://www.juliawu.me/about/) while working full-time as an engineer at companies like Apple, won 3 defi hackathons and received $25k in prizes/funding for my side projects. Built my first NFT project in 2018 which got funded by Pioneer.app.
+I also translated parts of the Ethereum whitepaper to Portuguese (2017) and have authored many crypto/fintech articles (https://hackernoon.com/u/juliawu) featured on the homepage of publications like HackerNoon, a tech blog with over 4M+ monthly readers.
+
+=== END OF POST ===
+
+Author: kotot
+Date: 11/11/2021, 12:34:44 AM
+
+ENS Name : kotot.eth
+My Reasons for wanting to be delegate:
+i would like to be part of this revolusioner move .
+My view on each section of the proposed ENS Constitution:
+Name ownership shall not be infringed: (Agree)
+Fees are primarily an incentive mechanism: (Agree)
+Income funds ENS and other public goods: (Agree)
+ENS Integrates with the global namespace: (Agree)
+My web 3 qualifications / skills:
+still learning
+
+=== END OF POST ===
+
+Author: elisafly
+Date: 11/11/2021, 12:45:06 AM
+
+ENS name: monaelisa.eth
+My reasons for wanting to be a delegate: I am excited about the opportunities ENS opens up to simplifying user experience in the space and enhance trust, especially with respect to DeFi. As the DeFi sphere expands and matures we’re seeing that the degree of “trust” required between participants varies depending on which protocols you’re using. ENS offers a great way to bridge that trust and build reputation to access the full spectrum of opportunities available.
+
+Name ownership is an absolute right: Agree
+
+Registration fees exist as an incentive mechanism: Agree
+
+Income funds ENS and other public goods: Agree
+
+ENS Integrates with the global namespace: Agree
+
+
+My web3 qualifications / skills: I have been contributing towards web3/ DeFi since 2016. I founded the Melon protocol in 2016 which later became known as Enzyme. Enzyme was the first DeFi protocol to decentralise its governance in February 2019 and move towards a DAO/Council model. After that, I created Avantgarde Finance which is building a service layer for DeFi. We are very interested in building features around ENS for Enzyme to simplify DeFi access such a vault sub-domains and other.
+
+=== END OF POST ===
+
+Author: SoulOfJacobeh
+Date: 11/11/2021, 1:11:23 AM
+
+ENS name: soulofjacobeh.eth
+My reasons for wanting to be a delegate: I’ve been an exceptionally active member (https://twitter.com/boardroom_info/status/1409958893699145729?s=20) in DAO governance for a while now. To date I’ve cast over 140 votes (https://app.boardroom.info/voter/0xe2cc777d59b4d354ff1d55add7579726d04430c0) for various governance. I’ve been using ENS since 2017, and guide projects for which I consult to integrate it into their platforms. I look forward to participating in governance through ENS, and intend to remain up-to-date on ENS issues, the project’s growth, and the politics that may arise in this space.
 My view on each section of the proposed ENS Constitution
 
-Name ownership shall not be infringed: (Agree/Disagree/Comment)
+Name ownership shall not be infringed: Agree
+Fees are primarily an incentive mechanism: Agree
+Income funds ENS and other public goods: Agree
+ENS Integrates with the global namespace: Agree
 
-Being completely frank, this provision is poorly worded and will definitely result in conflict/disagreement at some point (it already has if you poke around actually).  But I think the underlying principles motivating this provision are promising, if we can articulate them better.
-First, for ENS names to be useful at all the behaviour and usability of an ENS name has to be predictable and we have to have a consensus about that behaviour that has a high degree of legitimacy and legibility.  For better or worse, the existing expectation of many people in the Ethereum ecosystem is that once you designate a single private key (or set of private keys) to control a record, that key has to sign off on any future changes to the record. If you lose the key, too bad. It’s seen as a “harsh but fair” approach.  But even this consensus has a lot of caveats. Mostly these caveats are about ways that a community, smart contract architect, etc. sets the expectations of the users up front.  In the case of ENS names, take expiry. Expiry has been part of the ENS plan from the beginning, and because this has been communicated clearly there is a shared expectation and consensus on the part of most ENS users that this is an acceptable infringement on their “absolute right” of ownership. Or, what happens when there is a bug in the auction process? Maybe some auctions have to be restarted, which is a sort of infringement. But not doing so would infringe on other types of ownership. So I get what this point is trying to say but at the least the word “absolute” is a poor fit here.
-Another principle that definitely seems to be intended by this provision is to protect and maintain the credible neutrality of the ENS infrastructure itself. ENS already has a very wide userbase and set of stakeholders, and this credible neutrality is a key part of how all these different users, with their many (and sometimes conflicting) goals/needs can all agree to share one ENS system with its associated standards, tooling, integrations, and so on. But there is no such thing (or no such useful thing) as absolute neutrality. Even the credible neutrality of a system like ENS must of necessity embed some set of actual values to keep ENS worth anything at all to people.  These values include things like “what is a bug?” or “what constitutes a DoS attack?” and so on.  These values are mostly implicit in communities like this one, but they certainly exist. Not all of these values can be “enforced” but they must all “inform” certain decisions. A genuinely “true neutral” system is not actually useful.  You have to be good to everyone, not just neutral too them. And determining what that means hopefully involves some widely shared social consensus on what “good neutral” means, including how it changes in the light of new information (like changes in the Ethereum platform itself, or new technological capabilities that become available).
-And finally, it is a technical fact, regardless of how the ENS registrar etc. are designed, that the ENS system is socially forkable. There are obvious and significant advantages to not forking the ENS system, not least of which is the degree to which many technical integrations with ENS have failed to correctly plan for this possibility.  But what we all collectively decide the ENS system is will have an enormous effect on the future usage and usefulness of any particular smart contract that forms a part of it. These means that we need to make a deliberate and ongoing effort to maintain positive and ongoing relationships between as many present and future stakeholders as possible.  Doing this well requires continuous communication around how ENS names are changing, problems that users are encountering, and so on.  Trust and goodwill are critical elements of a technical consensus. You can’t even conceive of an idea of “absolute ownership” of ENS name which would ignore these facts.
-In summary, the thing I would want to protect as a delegate is the predictability, legitimacy, and legibility of the consensus around how ENS names work; the good and credible neutrality of the ENS architecture and system in how users and stakeholders are treated; and the positive social trust and goodwill which exists among the present and future set of ENS stakeholders.  And if someone can improve the phrasing of this section to better capture that, I’d happily vote for that version of the text. If not, that’s what I take this text to be trying to say, if somewhat poorly.
-
-Fees are primarily an incentive mechanism: (Agree/Disagree/Comment)
-
-This is clearly the existing social consensus around the ENS architecture. ENS is first and foremost a public service, NOT a for profit enterprise. Any divergence from this plan would be substantial:  very large issues would have to be at stake to ever consider changing this part of ENS in my view.
-
-Income funds ENS and other public goods: (Agree/Disagree/Comment)
-
-Again, in broad terms I think this is the existing consensus of what current and future funds are intended for.  Developing and supporting a healthy ENS ecosystem first, and then secondarily supporting the broader social and technical ecosystem on which the health of ENS also depends.
-
-ENS Integrates with the global namespace: (Agree/Disagree/Comment)
-
-The relationship of ENS with global namespaces like DNS is also fairly well established, if incompletely specified in a couple of cases.  But again the way of relating to and integrating DNS has been well established and public for some time, so it would take a very substantial issue being at stake for this general viewpoint to be seriously altered, in my view (example: a major change in how DNS is actually used worldwide).
-My web3 qualifications / skills:
-Incorrigible amateur and interferer in more serious technical engineering. Code literate, security aware, and familiar with most parts of the Ethereum and blockchain ecosystem, but probably not the person you want handwriting a critical bugfix under time pressure for real users.  More knowledgeable (albeit still not guaranteed to be useful) in the research department. A long track record of reviewing and analysing web3/Ethereum projects, typically at the design/conceptual/architectural level, though sometimes right down to the code. Knowledgeable enough to be dangerous about most technical things ![:slight_smile:](https://discuss.ens.domains/images/emoji/twitter/slight_smile.png?v=9) Bitcoin since 2010 and Ethereum since before crowdsale. Usually seen on twitter at https://twitter.com/technocrypto/ (https://twitter.com/technocrypto/)
+My web3 qualifications / skills: Just as I’ve been an active DAO governance participant with various projects, I’ve also been active in other aspects of the crypto space for many years. I began my crypto journey in 2013. I’m now a professional consultant for various crypto startups, I’m the second DAO-hired Rally Community Ambassador, I’m CTO and Co-Founder for Frexa, I manage a couple 8000+ member crypto Discords, and I’ve been heavily engaged in the GPU and FPGA mining scene since 2016. I’m full-time crypto, and intend to remain such.
 
 === END OF POST ===
 
-Author: beep
-Date: 11/5/2021, 4:33:57 PM
+Author: weirui
+Date: 11/11/2021, 1:12:46 AM
 
-ENS name: beep.eth
-My reasons for wanting to be a delegate:  I’m a freelancer, deep into crypto rabbit hole, gamer and community manager. I have worked with many projects as freelance CM. Currently I’m working as CM with Stader Labs i.e. liquid staking platform for Luna(currently) backed by Terraform Labs and Coinbase. I have deep desire and love for crypto, not just for money but people. You can meet really amazing folks and be friends with them regardless of their age, race or religion and that what crypto is all about, all coz you share the same interest i.e. crypto.
+ENS name: weirui.eth
+My reasons for wanting to be a delegate: I feel ENS is and will be the center point of the massive metaverse innovation that’s on the horizon. The true potential of the project can’t even be imagined until the ecosystem properly matures.
+My view on each section of the [proposed ENS Constitution ] (Proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814))
+
+Name ownership is an absolute right: ( Agree /Disagree/Comment)- Agree
+Registration fees exist as an incentive mechanism: ( Agree /Disagree/Comment)- Agree
+Income funds ENS and other public goods: ( Agree /Disagree/Comment)- Agree
+ENS Integrates with the global namespace: ( Agree /Disagree/Comment) - Agree
+
+My web3 qualifications / skills: I have only basic knowledge and recently started to learn more.
+
+=== END OF POST ===
+
+Author: jonmiles.eth
+Date: 11/11/2021, 7:32:18 AM
+
+jonmiles.eth
+I am a Peabody Award-winning storyteller who has worked in media at ABC, NBC, PBS, Fox, CBS, EWTN, BET, and many other organizations all over the spectrum, and I understand the requirements and structure of news as an outlet. I also can speak to technical people and have made a career taking complex subject matter and making it simple for everyone to understand.
+Name ownership: Agreed
+Registration Fees: Agreed
+Income funds: Agreed
+
+=== END OF POST ===
+
+Author: frankNFT
+Date: 11/11/2021, 8:08:49 AM
+
+ENS name: frankNFT.eth
+My reasons for wanting to be a delegate: To support the artists in the NFT community. Be there voice.
+My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
+
+Name ownership shall not be infringed: Agree
+Fees are primarily an incentive mechanism: Agree
+Income funds ENS and other public goods: Agree/
+ENS Integrates with the global namespace: Agree
+
+My web3 qualifications / skills:
+I am an NFT Artist (Foundation, MP and OS)
+And a solidity developer for several pfp projects and for the 2476 Token.
+
+=== END OF POST ===
+
+Author: MarBlockchain
+Date: 11/11/2021, 10:08:40 AM
+
+ENS name: marfernandez.eth
+My reasons for wanting to be a delegate: I am passionate about crypto since late 2017 and on top of that, the ETH ecosystem. I have been always listened to people suggestions and would like to participate in spreading the best  in this industry in order to better the world. ENS name: marfernandez.eth
+
+Name ownership is an absolute right: (Agree)
+Registration fees exist as an incentive mechanism: (Agree)
+Income funds ENS and other public goods: (Completely Agree)
+ENS Integrates with the global namespace: (Agree, ENS should be the global namespace standard)
+
+**My web3 qualifications / skills:
+Although I have not a developer background, I am very passionate about blockchain technology and on top of that in the eth ecosystem, and I even would love to be more active.
+
+=== END OF POST ===
+
+Author: Azzyinc
+Date: 11/11/2021, 11:32:25 AM
+
+Azzyinc.eth
+I would really like to be part of the DAO. I find it complex and interesting and can contribute my time and energy to help expand Crypto, NFT, and the full blockchain experience. I am into everything.
+My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
+
+Name ownership shall not be infringed: Agree
+Fees are primarily an incentive mechanism: Comment - Fees are a necessary evil.
+Income funds ENS and other public goods: Agree
+ENS Integrates with the global namespace: Agree
+
+My web3 qualifications / skills:
+I have a full working knowledge of Crypto currencies, blockchain, contracts within NFTs, contracts, ETH Gas (now) and multiple blockchain technologies.I have engaged in NFT creation and multiple different blockchain purchases and sales. BNB currently is catching up to ETH. I use a hardware ledger and will continue to support that technology and promote it every chance I get. Looking forward to becoming a part of the DAO!
+
+@SolCalaveras1000×1000 435 KB
+ (https://discuss.ens.domains/uploads/db9688/original/2X/e/e84830bc8764fc2b92cc8914ebd423c4227e3763.jpeg)
+Once posted, click the Share button on your post and copy the URL.
+
+=== END OF POST ===
+
+Author: temoc.eth
+Date: 11/11/2021, 11:38:37 AM
+
+ENS name: temoc.eth
+My reasons for wanting to be a delegate: Just the opportunity to be part of something of huge relevance in tech using my knowledge and experience participating in nonprofit and private organization Committees and Boards.
+My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
+
+Name ownership shall not be infringed: Agree
+Fees are primarily an incentive mechanism: Agree
+Income funds ENS and other public goods: Agree
+ENS Integrates with the global namespace: Agree
+
+My web3 qualifications / skills: 25+ years experience in IT, Internet (since pre-web), security, Cloud, not a developer but more focused on architecture, integration, operations for small/midsize organizations.
+
+=== END OF POST ===
+
+Author: Omaralanii
+Date: 11/11/2021, 2:31:24 PM
+
+ENS name: omaralanii.eth
+My reasons for wanting to be a delegate: I think i have the motivation to be an ENS Delegator, also i’m really into Ethereum / WEB3 technology in general and i think i can be a delegate and reperesent the uae Speaking Community.
 My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
 
 Name ownership is an absolute right: (Agree/Disagree/Comment)** Agree.
@@ -142,249 +258,76 @@ Registration fees exist as an incentive mechanism: (Agree/Disagree/Comment)** Ag
 Income funds ENS and other public goods: (Agree/Disagree/Comment)** I totally Agree.
 ENS Integrates with the global namespace: (Agree/Disagree/Comment) I agree, ENS should be the standard on the Global Namespace in the future.
 
-My web3 qualifications / skills: Community management, marketing and excellent communicator
+My web3 qualifications / skills: I have basic web3/solidity
 
 === END OF POST ===
 
-Author: carlosdp
-Date: 11/5/2021, 5:19:13 PM
+Author: lostlabs
+Date: 11/11/2021, 3:27:17 PM
 
-ENS name: metaphor.xyz
+ENS name: lostlabs.eth
 My reasons for wanting to be a delegate:
-At Metaphor, we have experience building products on top of the ENS protocol, and believe it is a foundational block providing identity to the web3 ecosystem. We want to provide a voice in the governance community for the protocol for initiatives that improve user experience and make it easier for users and developers alike to use and build on top of ENS.
-My view on each section of the proposed ENS Constitution
-
-Name ownership shall not be infringed: Agree
-
-Fees are primarily an incentive mechanism: Agree
-
-Income funds ENS and other public goods: Agree, and we think those other public goods should be geared toward improving web3 identity to provide wider access to the ecosystem for a larger class of users.
-ENS Integrates with the global namespace: Agree, for the near term. We do think it’s worthwhile to discuss what happens when web3 has enough influence such that DNS is no longer significantly more embedded than a protocol like ENS, and how we can provide a wider namespace at that point without conflicting with DNS necessarily.
-
-My web3 qualifications / skills:
-Metaphor is a company/community (seeking to gradually become a DAO) that is making it crazy easy to join and participate in DAOs, with the idea that DAOs will be how the grand majority of users onboard into the web3 ecosystem as a whole.
-Our product portfolio includes davatar (https://davatar.xyz/), the first app to make it easy to set your ENS avatar in a few clicks, with gas-less updates. We also, as part of that launch, released @davatar/react (https://www.npmjs.com/package/@davatar/react): the first helper library for React to implement the full ENS avatar spec. It makes it really easy for developers to add ENS avatars to their apps, and is used by apps such as Uniswap.
-We have experience not only building products that are easy for any user to use in web3, but specifically on top of ENS. As such, we know very well the pain points that developers and users face when interacting with the ENS ecosystem, and have a lot of ideas on how we can improve them.
-If you delegate to us, we will throw our weight and priority behind proposals and projects that we believe will improve the usability of ENS with respect to developers and users, with the aim that ENS should become the username for the new web.
-
-=== END OF POST ===
-
-Author: kenzo
-Date: 11/5/2021, 5:20:26 PM
-
-ENS name: degentogetherstrong.eth
-My reasons for wanting to be a delegate: To help support the community and drive ENS forward. I love ENS
-My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
-
-Name ownership is an absolute right: Agree
-
-Registration fees exist as an incentive mechanism: Agree, but more like a disincentive to prevent users from simply sitting on names without using them.
-
-Income funds ENS and other public goods: Agree
-
-ENS Integrates with the global namespace: Agree
-
-
-My web3 qualifications / skills: Avid cryptocurrency researcher and trader
-
-=== END OF POST ===
-
-Author: Nori
-Date: 11/5/2021, 6:52:09 PM
-
-ENS name: duckbill.eth
-My reasons for wanting to be a delegate: I enjoy ENS. I wanna become one of the families in the big community and help the drive ENS up forward. I love ENS
-My view on each section of the proposed ENS Constitution (https://discuss.ens.domains/t/proposed-ens-constitution/814)
-
-Name ownership is an absolute right: Agree
-
-Registration fees exist as an incentive mechanism: Agree, but I think it should not be much.
-
-Income funds ENS and other public goods: Agree
-
-ENS Integrates with the global namespace: Agree
-
-
-My web3 qualifications / skills:  a trader and also a df player/ enthusiast.
-
-=== END OF POST ===
-
-Author: wrix.eth
-Date: 11/5/2021, 7:13:38 PM
-
-ENS name: wrix.eth
-My reasons for wanting to be a delegate:The time to stand with and for something of this nature is now. As each moment passes our freedoms and privacy is being stripped away. I am aware, that many object to the severity of my language; but is there not cause for severity? I vow to be as harsh as truth, and as uncompromising as justice. On this subject, I do not wish to think, or speak, or write, with moderation. I am in earnest, I will not excuse, I will not retreat a single inch. (And WE WILL BE HEARD)
+This application represents LostLabs the organization, (contact: 0eGlu (https://twitter.com/0eGlu)). We are a group of crypto native thinkers/coders with experiences in the space reaching as far back as 2015. We are currently developing in the metaverse space and extending the use of NFTs to all aspects of DeFi and would like to bring our experiences and development expertise into the conversations around ens.
 My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
 
 Name ownership shall not be infringed: Agree
 Fees are primarily an incentive mechanism: Agree
+
+At Lost Labs we believe that the many current property ownership models can and should change with new technological advances. We’d be happy to bring some of our ideas into the conversation as we think a well thought out fee structure can benefit all parties involved.
+
 Income funds ENS and other public goods: Agree
 ENS Integrates with the global namespace: Agree
 
-My web3 qualifications / skills: Active participation in the growth and betterment of the ethereum ecosystem. Coding, Art, Research
+My web3 qualifications / skills: We’ve grown up with ethereum since it’s nascent stages and have since expanded our team to include protocol experts, designers and artists.
 
 === END OF POST ===
 
-Author: luyang.eth
-Date: 11/5/2021, 7:13:50 PM
+Author: omgomg
+Date: 11/11/2021, 6:58:02 PM
 
-ENS name: luyang.eth
-My reasons for wanting to be a delegate: I am optimistic about the development of ENS in the field of identity layer in the web3 world, I think it is indispensable
-My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
-
-Name ownership shall not be infringed: Agree
-Fees are primarily an incentive mechanism: Agree
-Income funds ENS and other public goods: Agree
-ENS Integrates with the global namespace: Agree
-
-My web3 qualifications / skills: I have about ten years of experience in basic software development, embrace the Linux Foundation. And have a good understanding and practical project development experience in the web3 field.
+我想成为代表的原因：拥有超过 15 万个钱包持有和使用 ENS 域，重要的是确保 ENS 的长期生存能力和可持续性，并确保 ENS 社区随着加密货币采用的增加而增长。作为考虑消费者加密应用程序和将数百万用户加入加密的机会的人，我相信我可以代表 ENS 社区并成为他们利益的坚定拥护者。
+我对[拟议的 ENS 宪法]（拟议的 ENS 宪法）每一部分的看法 2)
+名称所有权是绝对权利：（同意/不同意/评论）- 同意
+注册费作为一种激励机制存在：（同意/不同意/评论）- 同意
+收入基金ENS和其他公共物品：（同意/不同意/评论）-同意
+ENS 与全局命名空间集成：( Agree /Disagree/Comment) - Agre
+我们不能重复 web2 的错误并创建围墙花园，我们必须成为更大生态系统的一部分，这包括利用现有的良好采用的系统。
 
 === END OF POST ===
 
-Author: giva
-Date: 11/5/2021, 7:42:07 PM
+Author: aidai
+Date: 11/11/2021, 6:58:05 PM
 
-ENS name: ensia.eth / ensia.io (http://ensia.io/)
-My reasons for wanting to be a delegate: I think I have the motivation to be an ENS Delegator, also I’m really into ethereum/web3 technology in general and I think I can be a delegate and represent the Mongolian Speaking Community. I want to be a part of this next evolution of the web, the decentralized web.
-My view on each section of the proposed ENS Constitution (https://discuss.ens.domains/t/proposed-ens-constitution/814)
+我想成为代表的原因：
+我对[拟议的 ENS 章程]每一部分的看法
 
-Name ownership is an absolute right: Agree
-Registration fees exist as an incentive mechanism: Agree
-Income funds ENS and other public goods: Agree
-ENS Integrates with the global namespace: Agree
+不得侵犯名称所有权：绝对同意
+费用主要是一种激励机制：同意
+收入基金 ENS 和其他公共物品：同意并发表评论
+ENS 与全局命名空间集成：
+同意
+我的 web3 资格/技能：
 
-My web3 qualifications/skills:
-I am a solidity developer and have been involved with an NFT project which integrated ENS and I want to be a part of this next evolution of the web, the decentralized web.
 
-=== END OF POST ===
-
-Author: igna.eth
-Date: 11/5/2021, 7:50:17 PM
-
-ENS name: igna.eth
-My reasons for wanting to be a delegate: Being a long time proponent of crypto in general, several times I was faced with wanting to be able to vote regarding the direction of different projects, as frustrating as it was, I was forced to accept the outcome without being able to vote, and solely participate by giving my opinion in different forums.
-I see this as a unique opportunity to actively participate on a project that I am hugely supportive of.
-I believe in freedom and borderless access to financial systems. This is a type of scientific innovation that has the potential to reduce the wealth gap and allow humanity to keep growing with strong values and ethical standards by continuing the revolution that was started by the internet.
-My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
-
-Name ownership shall not be infringed: (Agree)
-Fees are primarily an incentive mechanism: (Agree)
-Income funds ENS and other public goods: (Agree)
-ENS Integrates with the global namespace: (Agree)
-
-My web3 qualifications / skills: I am a Staff Software Engineer at an important crypto forward company. Working on projects directly or indirectly related to crypto in general.
+多个 Defi 和 ReDefi 大规模项目的总监/项目经理。
+开发了第一个垂直整合的 DeFi 房地产交易和融资 web3 门户
 
 === END OF POST ===
 
-Author: stickykeys
-Date: 11/5/2021, 8:27:39 PM
+Author: Hene
+Date: 11/11/2021, 6:59:13 PM
 
 ENS name:
-stickykeys.eth
+henet.eth
 My reasons for wanting to be a delegate:
-I want to be able to advocate for underrepresented and underestimated communities who can bring a ton of value to ENS and general web3 naming standards/decision making, but are met with higher barriers than most when it comes to being able to contribute in these processes.
-My view on each section of the proposed ENS Constitution 798
-
-Name ownership shall not be infringed: Agree 100%
-Fees are primarily an incentive mechanism: Agree
-Income funds ENS and other public goods: Agree–min amount to ENS and max amount to other public goods
-ENS Integrates with the global namespace: Agree–decentralization being mission critical
-
-My web3 qualifications / skills:
-I am a core developer for the Ceramic Protocol being led by 3Box Labs. I am a p2p node operator (IPFS, Geth) and make contributions to open source p2p infrastructure. I run a blockchain education program called Bloom which brings women and genderqueer folks from web2 into web3 and I am a mentor in Gitcoin Kernel helping people grow in the space. My strengths are bringing new ideas to the table, challenging assumptions, helping groups escape decision paralysis, and making progress when knowledge/resources are limited.
-
-=== END OF POST ===
-
-Author: Dune
-Date: 11/5/2021, 8:39:46 PM
-
-ENS name: databento.eth
-**My reasons for wanting to be a delegate: It is a best way to explore the possibilities of ENS **
-My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)
-
+I have been a DNS record maintainer for internet companies since the 90’s, and I’m have been running a data center to provide services for both internet and web3 network customers. I see a lot of potential in the ENS naming system. I would be happy to represent customers in the future.
+My view on each section of the [proposed ENS Constitution 1.5k](Proposed ENS Constitution (https://discuss.ens.domains/t/proposed-ens-constitution/814)):
 Name ownership shall not be infringed: Agree
 Fees are primarily an incentive mechanism: Agree
 Income funds ENS and other public goods: Agree
 ENS Integrates with the global namespace: Agree
-
-My web3 qualifications / skills: Read eth contracts
-
-=== END OF POST ===
-
-Author: araceli11.eth
-Date: 11/5/2021, 9:23:18 PM
-
-My reasons for wanting to be a delegate:I would love to contribute to the healthy growth of this project. My knowledge might be of use for the DAO
-Proposed ENS Constitution:
-Agree
-Agree
-Agree
-Agree
-My web3 qualifications/skills:
-I have been learning and using some of the web3 platforms. I have enough knowledge to cross bridges back and forth. I have been in the Crypto space since 2015, and since then I have expanded my knowledge.
-
-=== END OF POST ===
-
-Author: dusixin.eth
-Date: 11/5/2021, 10:29:23 PM
-
-ENS name: dusixin.eth
-My reasons for wanting to be a delegate:Not only am I a huge believer in the project, but I’m spreading it on my network and on sites like Twitter. I feel that ENS is and will be the focal point of the massive metacosmic innovation that is coming. The true potential of the project cannot even be imagined until the ecosystem is properly mature. I want to help the program reach the level of adoption it deserves.
-My view on each section of the proposed ENS Constitution  (https://discuss.ens.domains/t/proposed-ens-constitution/814)**
-Name ownership shall not be infringed: Agree
-Fees are primarily an incentive mechanism: Agree
-Income funds ENS and other public goods: Agree
-ENS Integrates with the global namespace: Agree
-My web3 qualifications / skills:For the past 9 years, I have been working on Web 2.0 Privacy / Security (FAANG’s startup), And a firm believer in the advancement of privacy / security in the Web3 space, I am not only a great believer in this project, but also spreading it on my web and on sites like Twitter. I feel that ENS is and will be the focal point of the massive metacosmic innovation that is coming. The true potential of the project cannot even be imagined until the ecosystem is properly mature. I want to help the program reach the level of adoption it deserves.
-
-=== END OF POST ===
-
-Author: monet-supply
-Date: 11/5/2021, 10:32:34 PM
-
-ENS name: monetsupply.eth
-My reasons for wanting to be a delegate:
-
-I love ENS and am a longtime user and enthusiast
-I’m passionate about protecting and extending the impact of web3 identity (as an anon, I use ENS as the central hub connecting my various identity elements)
-I vote consistently (check out my Tally profile (https://www.withtally.com/voter/profile/JGPJGV) for proof ![:smiley:](https://discuss.ens.domains/images/emoji/twitter/smiley.png?v=9) )
-I’d like to contribute to ENS governance discussion on treasury management
-
-My view on each section of the proposed ENS Constitution
-
-Name ownership shall not be infringed: Agree, with some qualifications.
-
-ENS may need to make changes to the registration system to maintain an orderly/useful namespace - for example introducing a Harberger tax or other mechanism to allow for evicting squatters. Any retroactive changes to registration terms should be applied fairly and uniformly, and should only be taken if there is broad support of ENS governance and name owners.
-
-Fees are primarily an incentive mechanism: Agree
-
-Income funds ENS and other public goods: Agree
-
-ENS Integrates with the global namespace: Agree
-
-
 My web3 qualifications / skills:
-
-Active voter / delegate in several protocols: Maker, Compound, Uniswap, Gitcoin, Aave, etc
-Work on risk management for MakerDAO and Aave communities
-Work with Tally (https://www.withtally.com/) and curate protocol governance news
-Experience getting proposals and initiatives through DAO governance
-
-=== END OF POST ===
-
-Author: mawuko.eth
-Date: 11/5/2021, 10:53:27 PM
-
-ENS name: Mawuko.eth
-My reasons for wanting to be a delegate: I have a strong resolve for the potential of blockchain-based domain tech in offering identity solutions in a very decentralised way. ENS has been a prime candidate to usher in such potential so contributing to it’s growth, maintenance, and expansion via governance by being a community delegate is a no-brainer and good first step.
-Views on each section of the proposed ENS Constitution
-*Name ownership shall not be infringed: Agree
-
-Fees are primarily an incentive mechanism: Agree
-Income funds ENS and other public goods: Agree
-ENS Integrates with the global namespace: Agree
-
-My web3 qualifications / skills: Familiar with Solidity and the web3.js stack. Onboarded individuals and eventual communities into the NFT space. Held talks and panels at events such as NFT NYC. Familiar and actively build with non-EVM technologies and non-blockchain web3 solutions as well such Urbit.
+I have years of experience in DeFi and have written my text-based web3 tools using ethereum-go and erc20, -721, -1155 tokens in Solidity.
 
 === END OF POST ===
 
