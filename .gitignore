@@ -3,3 +3,8 @@ __pycache__/
 clean_forum_scraper/
 /node_modules/
 ../node_modules/
+.wake
+./wake
+/wake
+/venv/
+venv
